@@ -1,0 +1,88 @@
+import React from 'react';
+import { Star, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { REVIEWS } from '../../data/reviews';
+
+export const ReviewsSection: React.FC = () => {
+  return (
+    <section id="reviews" className="py-16 lg:py-24 border-b border-brand-border bg-brand-surface/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <CheckCircle2 size={13} />
+            Retours Clients Authentifiés
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            Pourquoi Choisir NOVA DEALS ?
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-400 mt-2">
+            Plus de 2 840 commandes expédiées avec un taux de satisfaction certifié de 98,6%.
+          </p>
+
+          <div className="flex items-center justify-center gap-3 mt-4">
+            <div className="flex items-center text-amber-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={18} className="fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <span className="text-sm font-bold text-white">4.9 / 5</span>
+            <span className="text-xs text-gray-400">Avis Collectés et Vérifiés</span>
+          </div>
+        </div>
+
+        {/* Review Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {REVIEWS.map((rev) => (
+            <div
+              key={rev.id}
+              className="p-6 rounded-2xl bg-brand-surface border border-brand-border flex flex-col justify-between space-y-4 shadow-lg"
+            >
+              <div className="space-y-3">
+                {/* Rating & Date */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-amber-400">
+                    {[...Array(rev.rating)].map((_, i) => (
+                      <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <span className="text-[11px] text-gray-500">{rev.date}</span>
+                </div>
+
+                <h4 className="text-sm font-bold text-white leading-snug">
+                  "{rev.title}"
+                </h4>
+
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  {rev.comment}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <img
+                    src={rev.avatar}
+                    alt={rev.author}
+                    className="w-8 h-8 rounded-full object-cover border border-white/10"
+                  />
+                  <div>
+                    <h5 className="text-xs font-bold text-white">{rev.author}</h5>
+                    <span className="text-[10px] text-gray-400 block truncate max-w-[130px]">
+                      {rev.productName}
+                    </span>
+                  </div>
+                </div>
+
+                {rev.verified && (
+                  <span className="flex items-center gap-1 text-[11px] text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                    <ShieldCheck size={12} />
+                    Achat vérifié
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
