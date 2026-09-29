@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { Filter, SlidersHorizontal, ArrowUpDown, Search, RotateCcw, Tag } from 'lucide-react';
+import { Search, RotateCcw, Tag, SlidersHorizontal } from 'lucide-react';
 import { PRODUCTS } from '../../data/products';
-import { Product, ProductCategory } from '../../types';
+import type { Product, ProductCategory } from '../../types';
 import { ProductCard } from '../ui/ProductCard';
 
 interface FeaturedProductsSectionProps {
@@ -22,7 +22,6 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
   const [priceRange, setPriceRange] = useState<'all' | 'under150' | '150to500' | 'above500'>('all');
   const [localSearch, setLocalSearch] = useState('');
 
-  // Keep in sync with parent prop if provided
   React.useEffect(() => {
     if (selectedCategoryFilter) {
       setActiveCategory(selectedCategoryFilter);
@@ -49,12 +48,10 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
   const filteredProducts = useMemo(() => {
     let result = [...PRODUCTS];
 
-    // Filter by Category
     if (activeCategory !== 'all') {
       result = result.filter((p) => p.category === activeCategory);
     }
 
-    // Filter by Search
     if (localSearch.trim()) {
       const q = localSearch.toLowerCase();
       result = result.filter(
@@ -65,7 +62,6 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
       );
     }
 
-    // Filter by Price Range
     if (priceRange === 'under150') {
       result = result.filter((p) => p.price < 150);
     } else if (priceRange === '150to500') {
@@ -74,7 +70,6 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
       result = result.filter((p) => p.price > 500);
     }
 
-    // Sorting
     if (sortBy === 'discount') {
       result.sort((a, b) => b.discountPercentage - a.discountPercentage);
     } else if (sortBy === 'price-asc') {
@@ -89,28 +84,27 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
   }, [activeCategory, sortBy, priceRange, localSearch]);
 
   return (
-    <section id="catalog" className="py-16 lg:py-24 border-b border-brand-border">
+    <section id="catalog" className="py-16 lg:py-24 border-b border-brand-border-light dark:border-brand-border transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
               <Tag size={13} />
               Catalogue Officiel
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-950 dark:text-white tracking-tight">
               Toutes les Offres Black Friday
             </h2>
-            <p className="text-xs sm:text-sm text-gray-400 mt-2 max-w-xl">
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 max-w-xl">
               Filtrez et comparez les promotions selon vos critères. Chaque article est en stock physique dans nos entrepôts.
             </p>
           </div>
 
-          {/* Reset button if filtered */}
           {(activeCategory !== 'all' || priceRange !== 'all' || localSearch !== '' || sortBy !== 'discount') && (
             <button
               onClick={handleResetFilters}
-              className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white bg-brand-surface border border-brand-border px-3.5 py-2 rounded-lg transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border px-3.5 py-2 rounded-lg transition-colors shrink-0 shadow-sm"
             >
               <RotateCcw size={13} />
               <span>Réinitialiser les filtres</span>
@@ -119,7 +113,7 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
         </div>
 
         {/* Filter Controls Bar */}
-        <div className="p-4 rounded-2xl bg-brand-surface border border-brand-border mb-8 space-y-4">
+        <div className="p-4 rounded-2xl bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border mb-8 space-y-4 shadow-sm">
           {/* Categories Pill Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {[
@@ -136,7 +130,7 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
                 className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                   activeCategory === tab.id
                     ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/20'
-                    : 'bg-brand-surface-elevated text-gray-400 hover:text-white hover:bg-white/5 border border-brand-border'
+                    : 'bg-gray-100 dark:bg-brand-surface-elevated text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/5 border border-gray-200 dark:border-brand-border'
                 }`}
               >
                 {tab.label}
@@ -145,8 +139,7 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
           </div>
 
           {/* Sub-filters: Search, Price, Sort */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-white/5">
-            {/* Search */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-gray-100 dark:border-white/5">
             <div className="relative">
               <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
               <input
@@ -154,17 +147,16 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
                 placeholder="Filtrer par nom..."
                 value={localSearch}
                 onChange={(e) => setLocalSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-2 bg-brand-surface-elevated rounded-lg border border-brand-border text-xs text-white placeholder-gray-500 focus:outline-none focus:border-brand-primary"
+                className="w-full pl-8 pr-3 py-2 bg-gray-50 dark:bg-brand-surface-elevated rounded-lg border border-gray-200 dark:border-brand-border text-xs text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:border-brand-primary"
               />
             </div>
 
-            {/* Price Filter */}
             <div className="flex items-center gap-2">
-              <span className="text-xs text-gray-400 font-medium shrink-0">Prix :</span>
+              <span className="text-xs text-gray-600 dark:text-gray-400 font-medium shrink-0">Prix :</span>
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value as any)}
-                className="w-full px-3 py-2 bg-brand-surface-elevated rounded-lg border border-brand-border text-xs text-white focus:outline-none focus:border-brand-primary"
+                className="w-full px-3 py-2 bg-gray-50 dark:bg-brand-surface-elevated rounded-lg border border-gray-200 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
               >
                 <option value="all">Tous les budgets</option>
                 <option value="under150">Moins de 150 €</option>
@@ -173,13 +165,12 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
               </select>
             </div>
 
-            {/* Sorting */}
             <div className="flex items-center gap-2">
-              <span className="text-xs text-gray-400 font-medium shrink-0">Tri :</span>
+              <span className="text-xs text-gray-600 dark:text-gray-400 font-medium shrink-0">Tri :</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full px-3 py-2 bg-brand-surface-elevated rounded-lg border border-brand-border text-xs text-white focus:outline-none focus:border-brand-primary"
+                className="w-full px-3 py-2 bg-gray-50 dark:bg-brand-surface-elevated rounded-lg border border-gray-200 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
               >
                 <option value="discount">Plus fortes réductions (%)</option>
                 <option value="price-asc">Prix croissant</option>
@@ -192,10 +183,10 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
 
         {/* Products Grid */}
         {filteredProducts.length === 0 ? (
-          <div className="p-12 text-center rounded-2xl bg-brand-surface border border-brand-border space-y-3">
-            <SlidersHorizontal size={32} className="mx-auto text-gray-500" />
-            <h3 className="text-base font-bold text-white">Aucun produit ne correspond à vos filtres</h3>
-            <p className="text-xs text-gray-400 max-w-xs mx-auto">
+          <div className="p-12 text-center rounded-2xl bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border space-y-3">
+            <SlidersHorizontal size={32} className="mx-auto text-gray-400" />
+            <h3 className="text-base font-bold text-gray-900 dark:text-white">Aucun produit ne correspond à vos filtres</h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 max-w-xs mx-auto">
               Essayez de modifier votre recherche ou réinitialisez les filtres pour afficher l'ensemble des offres.
             </p>
             <button

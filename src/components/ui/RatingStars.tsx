@@ -16,7 +16,7 @@ export const RatingStars: React.FC<RatingStarsProps> = ({
 }) => {
   return (
     <div className="inline-flex items-center gap-1.5">
-      <div className="flex items-center text-amber-400">
+      <div className="flex items-center text-amber-500">
         {[1, 2, 3, 4, 5].map((index) => {
           const filled = index <= Math.floor(rating);
           const half = !filled && index === Math.ceil(rating) && rating % 1 >= 0.5;
@@ -27,18 +27,18 @@ export const RatingStars: React.FC<RatingStarsProps> = ({
               size={size}
               className={`${
                 filled
-                  ? 'fill-amber-400 text-amber-400'
+                  ? 'fill-amber-500 text-amber-500'
                   : half
-                  ? 'fill-amber-400/50 text-amber-400'
-                  : 'text-gray-600'
+                  ? 'fill-amber-500/50 text-amber-500'
+                  : 'text-gray-300 dark:text-gray-600'
               }`}
             />
           );
         })}
       </div>
-      <span className="text-xs font-semibold text-gray-200">{rating.toFixed(1)}</span>
+      <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">{rating.toFixed(1)}</span>
       {showCount && reviewsCount && (
-        <span className="text-xs text-gray-400">({reviewsCount})</span>
+        <span className="text-xs text-gray-500 dark:text-gray-400">({reviewsCount})</span>
       )}
     </div>
   );

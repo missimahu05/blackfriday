@@ -4,7 +4,7 @@ import { X, Heart, Trash2, ShoppingCart, ArrowRight } from 'lucide-react';
 import { useWishlistStore } from '../../store/useWishlistStore';
 import { useCartStore } from '../../store/useCartStore';
 import { Button } from '../ui/Button';
-import { Product } from '../../types';
+import type { Product } from '../../types';
 
 interface WishlistDrawerProps {
   onSelectProduct: (product: Product) => void;
@@ -42,17 +42,16 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-              className="w-screen max-w-md bg-brand-surface-elevated border-l border-brand-border flex flex-col shadow-2xl"
+              className="w-screen max-w-md bg-white dark:bg-brand-surface-elevated border-l border-gray-200 dark:border-brand-border flex flex-col shadow-2xl text-gray-900 dark:text-white"
             >
-              {/* Header */}
-              <div className="p-5 border-b border-brand-border flex items-center justify-between bg-brand-surface">
+              <div className="p-5 border-b border-gray-200 dark:border-brand-border flex items-center justify-between bg-gray-50 dark:bg-brand-surface">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center">
-                    <Heart className="w-4 h-4 text-pink-400" />
+                    <Heart className="w-4 h-4 text-pink-500" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-base text-white">Vos Favoris</h3>
-                    <p className="text-[11px] text-gray-400">
+                    <h3 className="font-bold text-base text-gray-900 dark:text-white">Vos Favoris</h3>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400">
                       {items.length === 0
                         ? 'Aucun favori enregistré'
                         : `${items.length} références sauvegardées`}
@@ -62,25 +61,24 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
 
                 <button
                   onClick={closeWishlist}
-                  className="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                  className="p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
                   aria-label="Fermer les favoris"
                 >
                   <X size={20} />
                 </button>
               </div>
 
-              {/* Items */}
               <div className="flex-1 overflow-y-auto p-5 space-y-4">
                 {items.length === 0 ? (
                   <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-3">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-500">
+                    <div className="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400">
                       <Heart size={28} />
                     </div>
-                    <h4 className="text-base font-semibold text-white">Aucun favori pour le moment</h4>
-                    <p className="text-xs text-gray-400 max-w-xs leading-relaxed">
+                    <h4 className="text-base font-semibold text-gray-900 dark:text-white">Aucun favori pour le moment</h4>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 max-w-xs leading-relaxed">
                       Cliquez sur le coeur d'une fiche produit pour sauvegarder vos offres préférées du Black Friday.
                     </p>
-                    <Button variant="outline" size="sm" onClick={closeWishlist} className="mt-2">
+                    <Button variant="outline" size="sm" onClick={closeWishlist} className="mt-2 text-gray-700 dark:text-white">
                       Explorer le catalogue
                     </Button>
                   </div>
@@ -88,7 +86,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
                   items.map((product) => (
                     <div
                       key={product.id}
-                      className="flex gap-3.5 p-3 rounded-xl bg-brand-surface border border-brand-border/80"
+                      className="flex gap-3.5 p-3 rounded-xl bg-gray-50 dark:bg-brand-surface border border-gray-200 dark:border-brand-border/80 shadow-sm"
                     >
                       <img
                         src={product.image}
@@ -97,7 +95,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
                           onSelectProduct(product);
                           closeWishlist();
                         }}
-                        className="w-20 h-20 object-cover rounded-lg bg-gray-900 border border-white/10 shrink-0 cursor-pointer"
+                        className="w-20 h-20 object-cover rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-white/10 shrink-0 cursor-pointer"
                       />
                       <div className="flex-1 min-w-0 flex flex-col justify-between">
                         <div>
@@ -107,26 +105,26 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
                                 onSelectProduct(product);
                                 closeWishlist();
                               }}
-                              className="text-xs font-bold text-white hover:text-blue-400 cursor-pointer line-clamp-2"
+                              className="text-xs font-bold text-gray-900 dark:text-white hover:text-blue-500 cursor-pointer line-clamp-2"
                             >
                               {product.name}
                             </h4>
                             <button
                               onClick={() => removeItem(product.id)}
-                              className="text-gray-500 hover:text-red-400 transition-colors p-1"
+                              className="text-gray-400 hover:text-red-500 transition-colors p-1"
                               aria-label="Supprimer du panier"
                             >
                               <Trash2 size={14} />
                             </button>
                           </div>
-                          <span className="text-[11px] text-gray-400 block mt-0.5">
+                          <span className="text-[11px] text-gray-500 dark:text-gray-400 block mt-0.5">
                             {product.categoryLabel}
                           </span>
                         </div>
 
-                        <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                        <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-200 dark:border-white/5">
                           <div>
-                            <span className="text-sm font-extrabold text-white">
+                            <span className="text-sm font-extrabold text-gray-900 dark:text-white">
                               {product.price} €
                             </span>
                             <span className="text-[10px] text-gray-400 line-through ml-1.5">
@@ -150,9 +148,8 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
                 )}
               </div>
 
-              {/* Footer */}
               {items.length > 0 && (
-                <div className="p-5 border-t border-brand-border bg-brand-surface">
+                <div className="p-5 border-t border-gray-200 dark:border-brand-border bg-gray-50 dark:bg-brand-surface">
                   <Button
                     variant="primary"
                     size="md"

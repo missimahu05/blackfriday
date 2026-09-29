@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AnnouncementBar } from './components/layout/AnnouncementBar';
 import { Navbar } from './components/layout/Navbar';
+import { PromoMarquee } from './components/layout/PromoMarquee';
 import { Footer } from './components/layout/Footer';
 import { CartDrawer } from './components/layout/CartDrawer';
 import { WishlistDrawer } from './components/layout/WishlistDrawer';
@@ -47,11 +48,11 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-bg text-brand-text-main flex flex-col font-sans selection:bg-brand-primary selection:text-white">
+    <div className="min-h-screen bg-slate-50 dark:bg-brand-bg text-slate-900 dark:text-brand-text-main flex flex-col font-sans selection:bg-brand-primary selection:text-white transition-colors duration-300">
       {/* Top Banner */}
       <AnnouncementBar onExploreDeals={() => scrollToSection('flash-deals')} />
 
-      {/* Sticky Navbar */}
+      {/* Sticky Navbar with Dark/Light Toggle */}
       <Navbar
         onSelectProduct={(p) => setSelectedProduct(p)}
         onNavigateSection={scrollToSection}
@@ -60,20 +61,23 @@ export function App() {
 
       {/* Main Content View */}
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* Hero Section with Framer Motion and Countdown */}
         <HeroSection
           onExploreDeals={() => scrollToSection('catalog')}
           onExploreFlash={() => scrollToSection('flash-deals')}
           onSelectProduct={(p) => setSelectedProduct(p)}
         />
 
-        {/* Flash Deals Section */}
+        {/* Infinite Promo Marquee Ticker */}
+        <PromoMarquee />
+
+        {/* Flash Deals Section with Individual Timers */}
         <FlashDealsSection
           onSelectProduct={(p) => setSelectedProduct(p)}
           onExploreAll={() => scrollToSection('catalog')}
         />
 
-        {/* Categories Section */}
+        {/* Categories Section with Vector Icons */}
         <CategoriesSection
           onSelectCategory={handleSelectCategoryFromHeroOrSection}
         />
