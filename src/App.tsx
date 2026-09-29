@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { AnnouncementBar } from './components/layout/AnnouncementBar';
 import { Navbar } from './components/layout/Navbar';
-import { PromoMarquee } from './components/layout/PromoMarquee';
 import { Footer } from './components/layout/Footer';
 import { CartDrawer } from './components/layout/CartDrawer';
 import { WishlistDrawer } from './components/layout/WishlistDrawer';
@@ -18,7 +16,7 @@ import { FeaturedProductsSection } from './components/home/FeaturedProductsSecti
 import { ReviewsSection } from './components/home/ReviewsSection';
 import { NewsletterSection } from './components/home/NewsletterSection';
 
-import { Product, ProductCategory } from './types';
+import type { Product, ProductCategory } from './types';
 
 export function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -48,36 +46,30 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-brand-bg text-slate-900 dark:text-brand-text-main flex flex-col font-sans selection:bg-brand-primary selection:text-white transition-colors duration-300">
-      {/* Top Banner */}
-      <AnnouncementBar onExploreDeals={() => scrollToSection('flash-deals')} />
-
-      {/* Sticky Navbar with Dark/Light Toggle */}
+    <div className="min-h-screen bg-white dark:bg-[#0c0f17] text-slate-900 dark:text-brand-text-main flex flex-col font-sans selection:bg-brand-primary selection:text-white transition-colors duration-300">
+      {/* Sticky Navbar without clutter bands */}
       <Navbar
         onSelectProduct={(p) => setSelectedProduct(p)}
         onNavigateSection={scrollToSection}
         onOpenCheckout={() => setIsCheckoutOpen(true)}
       />
 
-      {/* Main Content View */}
+      {/* Main Content View with Full Viewport Sections */}
       <main className="flex-1">
-        {/* Hero Section with Framer Motion and Countdown */}
+        {/* Full-Height Hero Section with 3D Tilt */}
         <HeroSection
           onExploreDeals={() => scrollToSection('catalog')}
           onExploreFlash={() => scrollToSection('flash-deals')}
           onSelectProduct={(p) => setSelectedProduct(p)}
         />
 
-        {/* Infinite Promo Marquee Ticker */}
-        <PromoMarquee />
-
-        {/* Flash Deals Section with Individual Timers */}
+        {/* Flash Deals Section */}
         <FlashDealsSection
           onSelectProduct={(p) => setSelectedProduct(p)}
           onExploreAll={() => scrollToSection('catalog')}
         />
 
-        {/* Categories Section with Vector Icons */}
+        {/* Categories Section */}
         <CategoriesSection
           onSelectCategory={handleSelectCategoryFromHeroOrSection}
         />
@@ -101,7 +93,7 @@ export function App() {
         <NewsletterSection />
       </main>
 
-      {/* Footer */}
+      {/* Footer with Jolidon HOUNGUE developer link */}
       <Footer onNavigateSection={scrollToSection} />
 
       {/* Slide-over Drawers & Modals */}

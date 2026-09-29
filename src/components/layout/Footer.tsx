@@ -199,8 +199,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
       </div>
 
       <div className="border-t border-gray-200 dark:border-brand-border/60 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© 2026 NOVA DEALS SAS. Tous droits réservés. Événement Commercial Réglementé.</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <p>© 2026 NOVA DEALS SAS. Tous droits réservés.</p>
+            <span className="hidden sm:inline text-gray-300 dark:text-gray-700">•</span>
+            <p className="flex items-center gap-1.5 font-medium text-slate-700 dark:text-slate-300">
+              Développé par{' '}
+              <a
+                href="https://jolidonhoungue.pages.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-slate-900 dark:text-white hover:text-brand-primary dark:hover:text-red-400 transition-colors underline decoration-brand-primary dark:decoration-red-500 underline-offset-4"
+              >
+                Jolidon HOUNGUE
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <a href="#mentions" className="hover:text-gray-700 dark:hover:text-gray-400 transition-colors">
               Mentions Légales
@@ -209,7 +223,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
               Données Personnelles
             </a>
             <a href="#cgv" className="hover:text-gray-700 dark:hover:text-gray-400 transition-colors">
-              Conditions Générales de Vente
+              CGV
             </a>
           </div>
         </div>

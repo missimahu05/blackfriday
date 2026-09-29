@@ -9,10 +9,16 @@ interface ThemeState {
 }
 
 export const useThemeStore = create<ThemeState>((set) => {
-  // Read initial preference
-  const savedTheme = (typeof window !== 'undefined' && localStorage.getItem('nova-theme')) as ThemeMode | null;
-  const initialTheme: ThemeMode = savedTheme || 'dark';
+  // Read initial preference, default to 'light'
+  let initialTheme: ThemeMode = 'light';
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('nova-theme') as ThemeMode | null;
+    if (saved === 'dark' || saved === 'light') {
+      initialTheme = saved;
+    }
+  }
 
+  // Apply to documentElement
   if (typeof document !== 'undefined') {
     if (initialTheme === 'dark') {
       document.documentElement.classList.add('dark');
