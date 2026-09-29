@@ -34,22 +34,22 @@ export const PriceTag: React.FC<PriceTagProps> = ({
   return (
     <div className="flex flex-col">
       <div className="flex items-baseline gap-2.5 flex-wrap">
-        <span className={`${currentPriceSizes[size]} text-gray-950 dark:text-white tracking-tight`}>
+        <span className={`${currentPriceSizes[size]} text-slate-900 dark:text-white tracking-tight`}>
           {price.toLocaleString('fr-FR')} €
         </span>
         {oldPrice && oldPrice > price && (
-          <span className={`${oldPriceSizes[size]} text-gray-400 line-through font-normal`}>
+          <span className={`${oldPriceSizes[size]} text-slate-400 line-through font-normal`}>
             {oldPrice.toLocaleString('fr-FR')} €
           </span>
         )}
         {discountPercentage && (
-          <span className="text-xs font-bold text-red-600 dark:text-red-400 bg-red-500/10 px-1.5 py-0.5 rounded border border-red-500/20">
+          <span className="text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 dark:text-red-400 dark:bg-red-950/60 dark:border-red-900/50 px-2 py-0.5 rounded">
             -{discountPercentage}%
           </span>
         )}
       </div>
       {showSavings && savings > 0 && (
-        <span className="text-[12px] text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">
+        <span className="text-[12px] text-blue-600 dark:text-red-400 font-semibold mt-0.5">
           Économie : {savings.toLocaleString('fr-FR')} €
         </span>
       )}

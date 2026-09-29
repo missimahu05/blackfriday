@@ -77,7 +77,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section className="relative min-h-[calc(100vh-5rem)] w-full flex items-center justify-center overflow-hidden py-10 lg:py-16 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-      {/* Background Animated Halos */}
+      {/* Background Animated Halos (Bleu en clair, Rouge en sombre) */}
       <motion.div
         animate={
           shouldReduceMotion
@@ -88,12 +88,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               }
         }
         transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/15 dark:bg-red-500/10 rounded-full blur-[160px] pointer-events-none"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/15 dark:bg-red-500/15 rounded-full blur-[160px] pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column: Full-Height Content Framing */}
+          {/* Left Column: Full-Height Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -102,30 +102,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           >
             {/* Promo Pill with Copy Action */}
             <motion.div variants={itemVariants} className="inline-flex justify-center lg:justify-start">
-              <div className="inline-flex items-center gap-2 p-1.5 pr-3 rounded-full bg-slate-100 dark:bg-[#151a24] border border-slate-200 dark:border-slate-800 text-xs shadow-sm">
-                <span className="flex items-center gap-1.5 bg-brand-primary dark:bg-brand-promo text-white font-bold px-2.5 py-1 rounded-full text-[11px] uppercase tracking-wider shadow-sm">
+              <div className="inline-flex items-center gap-2 p-1.5 pr-3 rounded-full bg-blue-50 dark:bg-[#151a24] border border-blue-200 dark:border-slate-800 text-xs shadow-sm">
+                <span className="flex items-center gap-1.5 bg-blue-600 dark:bg-red-600 text-white font-bold px-2.5 py-1 rounded-full text-[11px] uppercase tracking-wider shadow-sm">
                   <Flame size={13} className="text-white animate-bounce" />
                   Black Friday 2026
                 </span>
                 <button
                   onClick={handleCopyCode}
-                  className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 hover:text-brand-primary dark:hover:text-red-400 font-semibold cursor-pointer transition-colors"
+                  className="flex items-center gap-1.5 text-blue-900 dark:text-slate-300 hover:text-blue-700 dark:hover:text-red-400 font-semibold cursor-pointer transition-colors"
                   title="Cliquer pour copier le code"
                 >
-                  <Tag size={12} className="text-brand-primary dark:text-red-400" />
+                  <Tag size={12} className="text-blue-600 dark:text-red-400" />
                   <span>Code : <strong className="underline">BLACK10</strong></span>
                   {copiedCode ? <Check size={12} className="text-emerald-500" /> : null}
                 </button>
               </div>
             </motion.div>
 
-            {/* Main Title */}
+            {/* Main Title (Bleu en clair, Rouge en sombre) */}
             <motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.05]"
             >
               Les prix chutent.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-red-500 dark:to-orange-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-red-500 dark:to-orange-500">
                 Pas vos attentes.
               </span>
             </motion.h1>
@@ -141,7 +141,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Dynamic Countdown */}
             <motion.div
               variants={itemVariants}
-              className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 max-w-lg mx-auto lg:mx-0 shadow-lg"
+              className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#131722] border border-blue-100 dark:border-slate-800 max-w-lg mx-auto lg:mx-0 shadow-lg"
             >
               <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-3">
                 <span className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-blue-600 dark:text-red-400">
@@ -156,10 +156,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <div className="grid grid-cols-4 gap-2 text-center">
                 {[
-                  { value: timeLeft.days, label: 'Jours', isRed: false },
-                  { value: timeLeft.hours, label: 'Heures', isRed: false },
-                  { value: timeLeft.minutes, label: 'Minutes', isRed: false },
-                  { value: timeLeft.seconds, label: 'Secondes', isRed: true },
+                  { value: timeLeft.days, label: 'Jours', isColored: false },
+                  { value: timeLeft.hours, label: 'Heures', isColored: false },
+                  { value: timeLeft.minutes, label: 'Minutes', isColored: false },
+                  { value: timeLeft.seconds, label: 'Secondes', isColored: true },
                 ].map((unit, idx) => (
                   <div
                     key={idx}
@@ -167,7 +167,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   >
                     <span
                       className={`text-2xl sm:text-3xl font-black font-mono block ${
-                        unit.isRed
+                        unit.isColored
                           ? 'text-blue-600 dark:text-red-400'
                           : 'text-slate-900 dark:text-white'
                       }`}
@@ -191,7 +191,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 variant="primary"
                 size="lg"
                 onClick={onExploreDeals}
-                className="bg-brand-primary dark:bg-brand-promo hover:bg-brand-primary-hover dark:hover:bg-brand-promo-hover shadow-xl shadow-brand-primary/25 dark:shadow-brand-promo/30 group"
+                className="group"
               >
                 <span>Explorer les Offres (-70%)</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -201,7 +201,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 variant="secondary"
                 size="lg"
                 onClick={onExploreFlash}
-                className="border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151a24] text-slate-900 dark:text-white group"
+                className="group"
               >
                 <Flame size={18} className="text-blue-600 dark:text-red-500 group-hover:scale-110 transition-transform" />
                 <span>Ventes Flash en Direct</span>
@@ -218,8 +218,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 Garantie constructeur 2 ans
               </span>
               <span className="flex items-center gap-1.5">
-                <Zap size={14} className="text-blue-500" />
-                Livraison express gratuite dès 75 €
+                <Zap size={14} className="text-blue-600 dark:text-red-400" />
+                Livraison express dès 75 €
               </span>
               <span className="flex items-center gap-1.5">
                 <Star size={14} className="text-amber-500 fill-amber-500" />
@@ -228,15 +228,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </motion.div>
           </motion.div>
 
-          {/* Right Column: 3D Interactive Parallax Card Showcase */}
+          {/* Right Column: 3D Interactive Parallax Card */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
             <Card3D
               depth={16}
               onClick={() => onSelectProduct(SPOTLIGHT_PRODUCT)}
               className="w-full max-w-md cursor-pointer group"
             >
-              <div className="relative aspect-square rounded-3xl bg-gradient-to-b from-slate-100 to-white dark:from-[#1b202e] dark:to-[#131722] border border-slate-200 dark:border-slate-800 p-6 shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-blue-500/10 dark:group-hover:shadow-red-500/10">
-                {/* Product Image */}
+              <div className="relative aspect-square rounded-3xl bg-gradient-to-b from-slate-100 to-white dark:from-[#1b202e] dark:to-[#131722] border border-blue-100 dark:border-slate-800 p-6 shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-blue-500/15 dark:group-hover:shadow-red-500/15">
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.5 }}
@@ -245,46 +244,46 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   className="w-full h-full object-cover rounded-2xl relative z-10"
                 />
 
-                {/* Floating Deal Badge 1 */}
+                {/* Floating Badge (Bleu en clair, Rouge en sombre) */}
                 <motion.div
                   animate={shouldReduceMotion ? {} : { y: [0, -8, 0] }}
                   transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}
-                  className="absolute top-6 left-6 z-20 bg-brand-primary dark:bg-brand-promo text-white px-3.5 py-1.5 rounded-full font-black text-xs uppercase tracking-wider shadow-2xl flex items-center gap-1.5 border border-white/20"
+                  className="absolute top-6 left-6 z-20 bg-blue-600 dark:bg-red-600 text-white px-3.5 py-1.5 rounded-full font-black text-xs uppercase tracking-wider shadow-2xl flex items-center gap-1.5 border border-white/20"
                 >
                   <Flame size={14} className="text-white" />
                   -33% Vedette Black Friday
                 </motion.div>
 
-                {/* Floating Deal Badge 2 */}
+                {/* Floating Live Sold Alert */}
                 <motion.div
                   animate={shouldReduceMotion ? {} : { y: [0, 8, 0] }}
                   transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
-                  className="absolute top-6 right-6 z-20 bg-white/90 dark:bg-black/75 backdrop-blur-md text-emerald-600 dark:text-emerald-400 px-3 py-1.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-2xl flex items-center gap-1.5 border border-slate-200 dark:border-white/10"
+                  className="absolute top-6 right-6 z-20 bg-white/95 dark:bg-black/75 backdrop-blur-md text-emerald-600 dark:text-emerald-400 px-3 py-1.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-2xl flex items-center gap-1.5 border border-slate-200 dark:border-white/10"
                 >
                   <TrendingUp size={13} className="text-emerald-500" />
                   84 vendus aujourd'hui
                 </motion.div>
 
                 {/* Bottom Spec Summary */}
-                <div className="absolute bottom-6 left-6 right-6 z-20 p-4 rounded-xl bg-white/95 dark:bg-[#131722]/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 shadow-2xl flex items-center justify-between">
+                <div className="absolute bottom-6 left-6 right-6 z-20 p-4 rounded-xl bg-white/95 dark:bg-[#131722]/95 backdrop-blur-md border border-blue-100 dark:border-slate-800 shadow-2xl flex items-center justify-between">
                   <div>
                     <h4 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">
                       {SPOTLIGHT_PRODUCT.name}
                     </h4>
                     <div className="flex items-baseline gap-2 mt-0.5">
-                      <span className="text-base font-extrabold text-brand-primary dark:text-white">
+                      <span className="text-base font-extrabold text-blue-600 dark:text-white">
                         {SPOTLIGHT_PRODUCT.price} €
                       </span>
                       <span className="text-xs text-slate-400 line-through">
                         {SPOTLIGHT_PRODUCT.oldPrice} €
                       </span>
-                      <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                      <span className="text-[11px] text-blue-600 dark:text-red-400 font-semibold">
                         -{SPOTLIGHT_PRODUCT.oldPrice - SPOTLIGHT_PRODUCT.price} €
                       </span>
                     </div>
                   </div>
 
-                  <span className="shrink-0 p-2.5 rounded-lg bg-brand-primary dark:bg-brand-promo text-white group-hover:scale-105 transition-transform shadow-md">
+                  <span className="shrink-0 p-2.5 rounded-lg bg-blue-600 dark:bg-red-600 text-white group-hover:scale-105 transition-transform shadow-md">
                     <ArrowRight size={16} />
                   </span>
                 </div>

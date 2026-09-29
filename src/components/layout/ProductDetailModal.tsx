@@ -79,11 +79,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-4xl bg-white dark:bg-brand-surface-elevated border border-gray-200 dark:border-brand-border rounded-2xl shadow-2xl overflow-hidden my-8 z-10 text-gray-900 dark:text-white"
+          className="relative w-full max-w-4xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden my-8 z-10 text-slate-900 dark:text-white"
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors border border-white/10"
+            className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-slate-900/70 text-white hover:bg-slate-900 transition-colors border border-white/10"
             aria-label="Fermer la vue produit"
           >
             <X size={18} />
@@ -91,8 +91,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Gallery Left */}
-            <div className="p-6 md:p-8 bg-gray-50 dark:bg-brand-surface flex flex-col justify-between border-b md:border-b-0 md:border-r border-gray-200 dark:border-brand-border">
-              <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-gray-200 dark:bg-black/40 border border-gray-200 dark:border-white/10 group mb-4">
+            <div className="p-6 md:p-8 bg-slate-50 dark:bg-[#0c0f17] flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800">
+              <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-200 dark:bg-black/40 border border-slate-200 dark:border-white/10 group mb-4">
                 <img
                   src={selectedImage}
                   alt={product.name}
@@ -113,8 +113,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       onClick={() => setSelectedImage(img)}
                       className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all shrink-0 ${
                         selectedImage === img
-                          ? 'border-brand-primary ring-2 ring-brand-primary/30'
-                          : 'border-gray-200 dark:border-white/10 opacity-70 hover:opacity-100'
+                          ? 'border-blue-600 dark:border-red-500 ring-2 ring-blue-500/20 dark:ring-red-500/20'
+                          : 'border-slate-200 dark:border-white/10 opacity-70 hover:opacity-100'
                       }`}
                     >
                       <img src={img} alt="" className="w-full h-full object-cover" />
@@ -128,17 +128,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             <div className="p-6 md:p-8 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
-                  <span className="text-xs uppercase tracking-wider font-semibold text-blue-600 dark:text-blue-400">
+                  <span className="text-xs uppercase tracking-wider font-semibold text-blue-600 dark:text-red-400">
                     {product.categoryLabel}
                   </span>
                   <RatingStars rating={product.rating} reviewsCount={product.reviewsCount} />
                 </div>
 
-                <h2 className="text-2xl font-black text-gray-950 dark:text-white tracking-tight leading-snug">
+                <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-snug">
                   {product.name}
                 </h2>
 
-                <div className="p-4 rounded-xl bg-gray-50 dark:bg-brand-surface border border-gray-200 dark:border-brand-border/80">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#131722] border border-slate-200 dark:border-slate-800">
                   <PriceTag
                     price={product.price}
                     oldPrice={product.oldPrice}
@@ -146,21 +146,21 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     size="xl"
                   />
                   {product.stock <= 10 && (
-                    <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-200 dark:border-white/5 text-xs text-amber-600 dark:text-amber-400 font-medium">
-                      <Clock size={14} className="text-amber-500 animate-pulse" />
+                    <div className="flex items-center gap-2 mt-3 pt-3 border-t border-slate-200 dark:border-white/5 text-xs text-blue-700 dark:text-red-400 font-medium">
+                      <Clock size={14} className="text-blue-600 dark:text-red-500 animate-pulse" />
                       <span>Forte demande : plus que {product.stock} pièces en réserve !</span>
                     </div>
                   )}
                 </div>
 
-                <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                   {product.description}
                 </p>
 
                 {product.colors && product.colors.length > 0 && (
                   <div className="space-y-2">
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block">
-                      Finition / Coloris : <span className="text-gray-950 dark:text-white font-bold">{selectedColor}</span>
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                      Finition / Coloris : <span className="text-slate-900 dark:text-white font-bold">{selectedColor}</span>
                     </label>
                     <div className="flex gap-2.5">
                       {product.colors.map((c) => (
@@ -169,8 +169,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                           onClick={() => setSelectedColor(c.name)}
                           className={`relative px-3 py-1.5 rounded-lg border text-xs font-medium flex items-center gap-2 transition-all ${
                             selectedColor === c.name
-                              ? 'border-brand-primary bg-blue-50 dark:bg-brand-primary/10 text-brand-primary dark:text-white'
-                              : 'border-gray-200 dark:border-brand-border bg-white dark:bg-brand-surface text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                              ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 font-bold'
+                              : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131722] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                           }`}
                         >
                           <span
@@ -184,14 +184,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   </div>
                 )}
 
-                <div className="space-y-2 pt-2 border-t border-gray-100 dark:border-white/5">
-                  <h4 className="text-xs font-bold text-gray-800 dark:text-gray-200 uppercase tracking-wider">
+                <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-white/5">
+                  <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
                     Points Clés Vérifiés
                   </h4>
-                  <ul className="space-y-1.5 text-xs text-gray-600 dark:text-gray-400">
+                  <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
                     {product.features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <Check size={14} className="text-emerald-500 mt-0.5 shrink-0" />
+                        <Check size={14} className="text-blue-600 dark:text-red-400 mt-0.5 shrink-0" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -200,30 +200,30 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               {/* Action Buttons */}
-              <div className="space-y-3 pt-4 border-t border-gray-200 dark:border-brand-border">
+              <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
                 <div className="flex gap-3">
-                  <div className="flex items-center border border-gray-300 dark:border-brand-border rounded-lg bg-gray-50 dark:bg-brand-surface px-2">
+                  <div className="flex items-center border border-slate-300 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-[#131722] px-2">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-2 py-1 text-sm font-bold"
+                      className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-red-400 px-2 py-1 text-sm font-bold"
                     >
                       -
                     </button>
-                    <span className="text-xs font-bold text-gray-900 dark:text-white px-2">{quantity}</span>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white px-2">{quantity}</span>
                     <button
                       onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
-                      className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-2 py-1 text-sm font-bold"
+                      className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-red-400 px-2 py-1 text-sm font-bold"
                     >
                       +
                     </button>
                   </div>
 
                   <Button
-                    variant="promo"
+                    variant="primary"
                     size="lg"
                     fullWidth
                     onClick={handleAddToCart}
-                    className="flex-1 shadow-lg shadow-brand-promo/25"
+                    className="flex-1 shadow-lg shadow-blue-600/20 dark:shadow-red-600/25"
                   >
                     <ShoppingCart size={18} />
                     <span>Ajouter au Panier</span>
@@ -233,26 +233,26 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={handleToggleWishlist}
                     className={`p-3 rounded-lg border transition-colors ${
                       isFavorite
-                        ? 'border-pink-500 bg-pink-500/10 text-pink-500'
-                        : 'border-gray-200 dark:border-brand-border bg-gray-50 dark:bg-brand-surface text-gray-400 hover:text-gray-700 dark:hover:text-white'
+                        ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-600 dark:text-red-500'
+                        : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#131722] text-slate-400 hover:text-blue-600 dark:hover:text-red-400'
                     }`}
                     aria-label="Ajouter aux favoris"
                   >
-                    <Heart size={18} className={isFavorite ? 'fill-pink-500' : ''} />
+                    <Heart size={18} className={isFavorite ? 'fill-blue-600 dark:fill-red-500' : ''} />
                   </button>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 pt-2 text-[11px] text-gray-500 dark:text-gray-400 text-center">
+                <div className="grid grid-cols-3 gap-2 pt-2 text-[11px] text-slate-500 dark:text-slate-400 text-center">
                   <div className="flex items-center justify-center gap-1">
-                    <Truck size={12} className="text-blue-500" />
+                    <Truck size={12} className="text-blue-600 dark:text-red-400" />
                     <span>Livraison 24h</span>
                   </div>
                   <div className="flex items-center justify-center gap-1">
-                    <ShieldCheck size={12} className="text-emerald-500" />
+                    <ShieldCheck size={12} className="text-blue-600 dark:text-red-400" />
                     <span>Garantie 2 ans</span>
                   </div>
                   <div className="flex items-center justify-center gap-1">
-                    <RotateCcw size={12} className="text-purple-500" />
+                    <RotateCcw size={12} className="text-blue-600 dark:text-red-400" />
                     <span>Retour 30j</span>
                   </div>
                 </div>

@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => onNavigateSection('hero')}
               className="flex items-center gap-3 text-left group focus:outline-none"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-blue-400 dark:from-red-600 dark:to-red-500 flex items-center justify-center shadow-lg shadow-brand-primary/25 dark:shadow-red-600/30 group-hover:scale-105 group-active:scale-95 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-blue-600 dark:bg-red-600 flex items-center justify-center shadow-lg shadow-blue-600/25 dark:shadow-red-600/30 group-hover:scale-105 group-active:scale-95 transition-all">
                 <Zap className="w-5 h-5 text-white fill-white" />
               </div>
               <div>
@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <span className="text-xl font-black tracking-tight text-slate-900 dark:text-white font-sans">
                     NOVA
                   </span>
-                  <span className="text-xs font-bold text-white bg-brand-primary dark:bg-brand-promo px-2 py-0.5 rounded-full shadow-sm tracking-wider">
+                  <span className="text-xs font-bold text-white bg-blue-600 dark:bg-red-600 px-2 py-0.5 rounded-full shadow-sm tracking-wider">
                     DEALS
                   </span>
                 </div>
@@ -98,32 +98,32 @@ export const Navbar: React.FC<NavbarProps> = ({
             <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600 dark:text-slate-300">
               <button
                 onClick={() => onNavigateSection('flash-deals')}
-                className="flex items-center gap-1.5 hover:text-brand-primary dark:hover:text-red-400 transition-colors py-2"
+                className="flex items-center gap-1.5 text-blue-600 dark:text-red-400 hover:text-blue-700 dark:hover:text-red-300 transition-colors py-2"
               >
-                <Flame className="w-4 h-4 text-brand-primary dark:text-red-500 animate-pulse" />
+                <Flame className="w-4 h-4 text-blue-600 dark:text-red-500 animate-pulse" />
                 Ventes Flash
               </button>
               <button
                 onClick={() => onNavigateSection('categories')}
-                className="hover:text-slate-950 dark:hover:text-white transition-colors py-2"
+                className="hover:text-blue-600 dark:hover:text-red-400 transition-colors py-2"
               >
                 Rayons
               </button>
               <button
                 onClick={() => onNavigateSection('spotlight')}
-                className="hover:text-slate-950 dark:hover:text-white transition-colors py-2"
+                className="hover:text-blue-600 dark:hover:text-red-400 transition-colors py-2"
               >
                 Offre Phare
               </button>
               <button
                 onClick={() => onNavigateSection('catalog')}
-                className="hover:text-slate-950 dark:hover:text-white transition-colors py-2"
+                className="hover:text-blue-600 dark:hover:text-red-400 transition-colors py-2"
               >
                 Catalogue
               </button>
               <button
                 onClick={() => onNavigateSection('guarantees')}
-                className="hover:text-slate-950 dark:hover:text-white transition-colors py-2"
+                className="hover:text-blue-600 dark:hover:text-red-400 transition-colors py-2"
               >
                 Garanties
               </button>
@@ -145,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     setIsSearchOpen(true);
                   }}
                   onFocus={() => setIsSearchOpen(true)}
-                  className="w-full pl-9 pr-4 py-2 bg-slate-100 dark:bg-[#151a24] rounded-xl border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-primary dark:focus:border-brand-promo focus:ring-2 focus:ring-brand-primary/10 transition-all"
+                  className="w-full pl-9 pr-4 py-2 bg-slate-100 dark:bg-[#151a24] rounded-xl border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-600 dark:focus:border-red-500 focus:ring-2 focus:ring-blue-600/10 dark:focus:ring-red-500/10 transition-all"
                 />
                 {searchQuery && (
                   <button
@@ -180,13 +180,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                             {product.name}
                           </p>
                           <div className="flex items-center gap-2 mt-0.5">
-                            <span className="text-xs font-bold text-brand-primary dark:text-red-400">
+                            <span className="text-xs font-bold text-blue-600 dark:text-red-400">
                               {product.price} €
                             </span>
                             <span className="text-[10px] text-slate-400 line-through">
                               {product.oldPrice} €
                             </span>
-                            <span className="text-[10px] bg-red-500/10 text-red-600 dark:text-red-400 px-1 rounded font-bold">
+                            <span className="text-[10px] bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 px-1.5 py-0.5 rounded font-bold">
                               -{product.discountPercentage}%
                             </span>
                           </div>
@@ -202,12 +202,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Dark / Light Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-[#151a24] hover:bg-slate-200 dark:hover:bg-[#1d2331] border border-slate-200 dark:border-slate-800 rounded-xl transition-all min-w-[42px] min-h-[42px] flex items-center justify-center focus:outline-none"
+              className="p-2.5 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-red-400 bg-slate-100 dark:bg-[#151a24] hover:bg-blue-50 dark:hover:bg-[#1d2331] border border-slate-200 dark:border-slate-800 rounded-xl transition-all min-w-[42px] min-h-[42px] flex items-center justify-center focus:outline-none"
               aria-label={theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre'}
-              title={theme === 'dark' ? 'Passer en Mode Clair' : 'Passer en Mode Sombre'}
+              title={theme === 'dark' ? 'Passer en Mode Clair (Blanc & Bleu)' : 'Passer en Mode Sombre (Noir & Rouge)'}
             >
               {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-400 transition-transform hover:rotate-90 duration-300" />
+                <Sun className="w-4 h-4 text-red-400 transition-transform hover:rotate-90 duration-300" />
               ) : (
                 <Moon className="w-4 h-4 text-blue-600 transition-transform hover:-rotate-12 duration-300" />
               )}
@@ -216,12 +216,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Wishlist Button with perfectly centered badge */}
             <button
               onClick={openWishlist}
-              className="relative p-2.5 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-[#151a24] hover:bg-slate-200 dark:hover:bg-[#1d2331] border border-slate-200 dark:border-slate-800 rounded-xl transition-colors focus:outline-none min-w-[42px] min-h-[42px] flex items-center justify-center"
+              className="relative p-2.5 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-red-400 bg-slate-100 dark:bg-[#151a24] hover:bg-slate-200 dark:hover:bg-[#1d2331] border border-slate-200 dark:border-slate-800 rounded-xl transition-colors focus:outline-none min-w-[42px] min-h-[42px] flex items-center justify-center"
               aria-label="Voir mes favoris"
             >
               <Heart className="w-4 h-4" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-primary dark:bg-red-500 text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-[#0f121a] shadow-md">
+                <span className="absolute -top-1 -right-1 bg-blue-600 dark:bg-red-600 text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-[#0f121a] shadow-md">
                   {wishlistCount}
                 </span>
               )}
@@ -230,13 +230,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Cart Button with perfectly embedded framing */}
             <button
               onClick={openCart}
-              className="relative flex items-center justify-center gap-2.5 px-4 py-2.5 text-white bg-brand-primary dark:bg-brand-promo hover:bg-brand-primary-hover dark:hover:bg-brand-promo-hover rounded-xl transition-all shadow-md shadow-brand-primary/25 dark:shadow-brand-promo/30 focus:outline-none active:scale-95 min-h-[42px]"
+              className="relative flex items-center justify-center gap-2.5 px-4 py-2.5 text-white bg-blue-600 hover:bg-blue-700 dark:bg-red-600 dark:hover:bg-red-700 rounded-xl transition-all shadow-md shadow-blue-600/25 dark:shadow-red-600/30 focus:outline-none active:scale-95 min-h-[42px]"
               aria-label="Ouvrir le panier"
             >
               <ShoppingCart className="w-4 h-4 text-white" />
               <span className="text-xs font-bold hidden sm:inline">Panier</span>
               {cartCount > 0 ? (
-                <span className="bg-white text-brand-primary dark:text-brand-promo text-[11px] font-black min-w-[20px] h-5 px-1.5 rounded-full flex items-center justify-center shadow-inner">
+                <span className="bg-white text-blue-600 dark:text-red-600 text-[11px] font-black min-w-[20px] h-5 px-1.5 rounded-full flex items-center justify-center shadow-inner">
                   {cartCount}
                 </span>
               ) : null}
@@ -245,7 +245,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2.5 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-[#151a24] border border-slate-200 dark:border-slate-800 rounded-xl transition-colors min-w-[42px] min-h-[42px] flex items-center justify-center"
+              className="lg:hidden p-2.5 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-red-400 bg-slate-100 dark:bg-[#151a24] border border-slate-200 dark:border-slate-800 rounded-xl transition-colors min-w-[42px] min-h-[42px] flex items-center justify-center"
               aria-label="Menu principal"
             >
               {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -256,15 +256,33 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Mobile Navigation Dropdown */}
         {isMobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
+            {/* Quick theme switcher for mobile */}
+            <button
+              onClick={toggleTheme}
+              className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-100 dark:bg-[#151a24] border border-slate-200 dark:border-slate-800 font-bold text-xs text-slate-900 dark:text-white transition-colors"
+            >
+              <span className="flex items-center gap-2">
+                {theme === 'dark' ? (
+                  <Sun className="w-4 h-4 text-red-400" />
+                ) : (
+                  <Moon className="w-4 h-4 text-blue-600" />
+                )}
+                <span>Mode d'affichage actuel : <strong>{theme === 'dark' ? 'Sombre (Noir & Rouge)' : 'Clair (Blanc & Bleu)'}</strong></span>
+              </span>
+              <span className="text-[11px] uppercase tracking-wider text-blue-600 dark:text-red-400 font-extrabold underline">
+                Basculer
+              </span>
+            </button>
+
             <button
               onClick={() => {
                 onNavigateSection('flash-deals');
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-blue-50 dark:bg-red-500/10 text-brand-primary dark:text-red-400 font-semibold text-sm"
+              className="w-full flex items-center justify-between p-3 rounded-xl bg-blue-50 dark:bg-red-500/10 text-blue-600 dark:text-red-400 font-semibold text-sm"
             >
               <span className="flex items-center gap-2">
-                <Flame className="w-4 h-4 text-brand-primary dark:text-red-500" />
+                <Flame className="w-4 h-4 text-blue-600 dark:text-red-500" />
                 Ventes Flash Exclusives
               </span>
               <ChevronRight size={16} />
@@ -290,7 +308,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 text-slate-700 dark:text-slate-200 text-sm"
             >
               <span className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-blue-500 dark:text-red-500" />
+                <Zap className="w-4 h-4 text-blue-600 dark:text-red-500" />
                 Offre Phare de la Semaine
               </span>
               <ChevronRight size={16} />

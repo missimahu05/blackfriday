@@ -84,19 +84,19 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
   }, [activeCategory, sortBy, priceRange, localSearch]);
 
   return (
-    <section id="catalog" className="py-16 lg:py-24 border-b border-brand-border-light dark:border-brand-border transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="catalog" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-slate-800 flex flex-col justify-center transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-red-500/10 border border-blue-200 dark:border-red-500/20 text-blue-700 dark:text-red-400 text-xs font-bold uppercase tracking-wider mb-3">
               <Tag size={13} />
               Catalogue Officiel
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
               Toutes les Offres Black Friday
             </h2>
-            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 max-w-xl">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-xl">
               Filtrez et comparez les promotions selon vos critères. Chaque article est en stock physique dans nos entrepôts.
             </p>
           </div>
@@ -104,7 +104,7 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
           {(activeCategory !== 'all' || priceRange !== 'all' || localSearch !== '' || sortBy !== 'discount') && (
             <button
               onClick={handleResetFilters}
-              className="inline-flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border px-3.5 py-2 rounded-lg transition-colors shrink-0 shadow-sm"
+              className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-red-400 bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 px-3.5 py-2 rounded-xl transition-colors shrink-0 shadow-sm"
             >
               <RotateCcw size={13} />
               <span>Réinitialiser les filtres</span>
@@ -113,8 +113,8 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
         </div>
 
         {/* Filter Controls Bar */}
-        <div className="p-4 rounded-2xl bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border mb-8 space-y-4 shadow-sm">
-          {/* Categories Pill Tabs */}
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 mb-8 space-y-4 shadow-sm">
+          {/* Categories Pill Tabs (Bleu en clair, Rouge en sombre) */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {[
               { id: 'all', label: 'Toutes les Offres' },
@@ -127,10 +127,10 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
               <button
                 key={tab.id}
                 onClick={() => handleCategoryClick(tab.id as ProductCategory | 'all')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                   activeCategory === tab.id
-                    ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/20'
-                    : 'bg-gray-100 dark:bg-brand-surface-elevated text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/5 border border-gray-200 dark:border-brand-border'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20 dark:bg-red-600 dark:shadow-red-500/20'
+                    : 'bg-slate-100 dark:bg-[#1b202e] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5 border border-slate-200 dark:border-slate-800'
                 }`}
               >
                 {tab.label}
@@ -139,24 +139,24 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
           </div>
 
           {/* Sub-filters: Search, Price, Sort */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-gray-100 dark:border-white/5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-100 dark:border-white/5">
             <div className="relative">
-              <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Filtrer par nom..."
                 value={localSearch}
                 onChange={(e) => setLocalSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-2 bg-gray-50 dark:bg-brand-surface-elevated rounded-lg border border-gray-200 dark:border-brand-border text-xs text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:border-brand-primary"
+                className="w-full pl-8 pr-3 py-2 bg-slate-50 dark:bg-[#1b202e] rounded-xl border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
               />
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs text-gray-600 dark:text-gray-400 font-medium shrink-0">Prix :</span>
+              <span className="text-xs text-slate-600 dark:text-slate-400 font-medium shrink-0">Prix :</span>
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value as any)}
-                className="w-full px-3 py-2 bg-gray-50 dark:bg-brand-surface-elevated rounded-lg border border-gray-200 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                className="w-full px-3 py-2 bg-slate-50 dark:bg-[#1b202e] rounded-xl border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
               >
                 <option value="all">Tous les budgets</option>
                 <option value="under150">Moins de 150 €</option>
@@ -166,11 +166,11 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs text-gray-600 dark:text-gray-400 font-medium shrink-0">Tri :</span>
+              <span className="text-xs text-slate-600 dark:text-slate-400 font-medium shrink-0">Tri :</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full px-3 py-2 bg-gray-50 dark:bg-brand-surface-elevated rounded-lg border border-gray-200 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                className="w-full px-3 py-2 bg-slate-50 dark:bg-[#1b202e] rounded-xl border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
               >
                 <option value="discount">Plus fortes réductions (%)</option>
                 <option value="price-asc">Prix croissant</option>
@@ -183,15 +183,15 @@ export const FeaturedProductsSection: React.FC<FeaturedProductsSectionProps> = (
 
         {/* Products Grid */}
         {filteredProducts.length === 0 ? (
-          <div className="p-12 text-center rounded-2xl bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border space-y-3">
-            <SlidersHorizontal size={32} className="mx-auto text-gray-400" />
-            <h3 className="text-base font-bold text-gray-900 dark:text-white">Aucun produit ne correspond à vos filtres</h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400 max-w-xs mx-auto">
+          <div className="p-12 text-center rounded-2xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 space-y-3">
+            <SlidersHorizontal size={32} className="mx-auto text-slate-400" />
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">Aucun produit ne correspond à vos filtres</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto">
               Essayez de modifier votre recherche ou réinitialisez les filtres pour afficher l'ensemble des offres.
             </p>
             <button
               onClick={handleResetFilters}
-              className="mt-2 text-xs font-bold text-brand-primary hover:underline"
+              className="mt-2 text-xs font-bold text-blue-600 dark:text-red-400 hover:underline"
             >
               Afficher tout le catalogue
             </button>

@@ -42,16 +42,16 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-              className="w-screen max-w-md bg-white dark:bg-brand-surface-elevated border-l border-gray-200 dark:border-brand-border flex flex-col shadow-2xl text-gray-900 dark:text-white"
+              className="w-screen max-w-md bg-white dark:bg-[#131722] border-l border-slate-200 dark:border-slate-800 flex flex-col shadow-2xl text-slate-900 dark:text-white"
             >
-              <div className="p-5 border-b border-gray-200 dark:border-brand-border flex items-center justify-between bg-gray-50 dark:bg-brand-surface">
+              <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-[#0c0f17]">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center">
-                    <Heart className="w-4 h-4 text-pink-500" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-red-500/10 flex items-center justify-center">
+                    <Heart className="w-4 h-4 text-blue-600 dark:text-red-400" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-base text-gray-900 dark:text-white">Vos Favoris</h3>
-                    <p className="text-[11px] text-gray-500 dark:text-gray-400">
+                    <h3 className="font-bold text-base text-slate-900 dark:text-white">Vos Favoris</h3>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
                       {items.length === 0
                         ? 'Aucun favori enregistré'
                         : `${items.length} références sauvegardées`}
@@ -61,7 +61,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
 
                 <button
                   onClick={closeWishlist}
-                  className="p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+                  className="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
                   aria-label="Fermer les favoris"
                 >
                   <X size={20} />
@@ -71,14 +71,14 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
               <div className="flex-1 overflow-y-auto p-5 space-y-4">
                 {items.length === 0 ? (
                   <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-3">
-                    <div className="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-400">
+                    <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-400">
                       <Heart size={28} />
                     </div>
-                    <h4 className="text-base font-semibold text-gray-900 dark:text-white">Aucun favori pour le moment</h4>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 max-w-xs leading-relaxed">
+                    <h4 className="text-base font-semibold text-slate-900 dark:text-white">Aucun favori pour le moment</h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs leading-relaxed">
                       Cliquez sur le coeur d'une fiche produit pour sauvegarder vos offres préférées du Black Friday.
                     </p>
-                    <Button variant="outline" size="sm" onClick={closeWishlist} className="mt-2 text-gray-700 dark:text-white">
+                    <Button variant="outline" size="sm" onClick={closeWishlist} className="mt-2 text-slate-700 dark:text-white">
                       Explorer le catalogue
                     </Button>
                   </div>
@@ -86,7 +86,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
                   items.map((product) => (
                     <div
                       key={product.id}
-                      className="flex gap-3.5 p-3 rounded-xl bg-gray-50 dark:bg-brand-surface border border-gray-200 dark:border-brand-border/80 shadow-sm"
+                      className="flex gap-3.5 p-3 rounded-xl bg-slate-50 dark:bg-[#1b202e] border border-slate-200 dark:border-slate-800 shadow-sm"
                     >
                       <img
                         src={product.image}
@@ -95,7 +95,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
                           onSelectProduct(product);
                           closeWishlist();
                         }}
-                        className="w-20 h-20 object-cover rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-white/10 shrink-0 cursor-pointer"
+                        className="w-20 h-20 object-cover rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-white/10 shrink-0 cursor-pointer"
                       />
                       <div className="flex-1 min-w-0 flex flex-col justify-between">
                         <div>
@@ -105,29 +105,29 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
                                 onSelectProduct(product);
                                 closeWishlist();
                               }}
-                              className="text-xs font-bold text-gray-900 dark:text-white hover:text-blue-500 cursor-pointer line-clamp-2"
+                              className="text-xs font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-red-400 cursor-pointer line-clamp-2"
                             >
                               {product.name}
                             </h4>
                             <button
                               onClick={() => removeItem(product.id)}
-                              className="text-gray-400 hover:text-red-500 transition-colors p-1"
+                              className="text-slate-400 hover:text-blue-600 dark:hover:text-red-400 transition-colors p-1"
                               aria-label="Supprimer du panier"
                             >
                               <Trash2 size={14} />
                             </button>
                           </div>
-                          <span className="text-[11px] text-gray-500 dark:text-gray-400 block mt-0.5">
+                          <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
                             {product.categoryLabel}
                           </span>
                         </div>
 
-                        <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-200 dark:border-white/5">
+                        <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-200 dark:border-white/5">
                           <div>
-                            <span className="text-sm font-extrabold text-gray-900 dark:text-white">
+                            <span className="text-sm font-extrabold text-slate-900 dark:text-white">
                               {product.price} €
                             </span>
-                            <span className="text-[10px] text-gray-400 line-through ml-1.5">
+                            <span className="text-[10px] text-slate-400 line-through ml-1.5">
                               {product.oldPrice} €
                             </span>
                           </div>
@@ -149,7 +149,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
               </div>
 
               {items.length > 0 && (
-                <div className="p-5 border-t border-gray-200 dark:border-brand-border bg-gray-50 dark:bg-brand-surface">
+                <div className="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17]">
                   <Button
                     variant="primary"
                     size="md"

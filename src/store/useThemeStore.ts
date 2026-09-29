@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-type ThemeMode = 'dark' | 'light';
+type ThemeMode = 'light' | 'dark';
 
 interface ThemeState {
   theme: ThemeMode;
@@ -8,50 +8,52 @@ interface ThemeState {
   setTheme: (theme: ThemeMode) => void;
 }
 
+const applyThemeToDOM = (theme: ThemeMode) => {
+  if (typeof document === 'undefined') return;
+  const root = document.documentElement;
+  const body = document.body;
+  if (theme === 'dark') {
+    root.classList.add('dark');
+    if (body) body.classList.add('dark');
+    root.setAttribute('data-theme', 'dark');
+  } else {
+    root.classList.remove('dark');
+    if (body) body.classList.remove('dark');
+    root.setAttribute('data-theme', 'light');
+  }
+  try {
+    localStorage.setItem('nova-theme', theme);
+  } catch (e) {
+    // localStorage not accessible
+  }
+};
+
 export const useThemeStore = create<ThemeState>((set) => {
-  // Read initial preference, default to 'light'
+  // Always default to 'light' unless explicitly saved as 'dark'
   let initialTheme: ThemeMode = 'light';
   if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem('nova-theme') as ThemeMode | null;
-    if (saved === 'dark' || saved === 'light') {
-      initialTheme = saved;
-    }
+    try {
+      const saved = localStorage.getItem('nova-theme');
+      if (saved === 'dark') {
+        initialTheme = 'dark';
+      }
+    } catch (e) {}
   }
 
-  // Apply to documentElement
-  if (typeof document !== 'undefined') {
-    if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }
+  // Synchronize DOM on startup
+  applyThemeToDOM(initialTheme);
 
   return {
     theme: initialTheme,
     toggleTheme: () => {
       set((state) => {
-        const nextTheme = state.theme === 'dark' ? 'light' : 'dark';
-        if (typeof document !== 'undefined') {
-          if (nextTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
-          localStorage.setItem('nova-theme', nextTheme);
-        }
+        const nextTheme: ThemeMode = state.theme === 'dark' ? 'light' : 'dark';
+        applyThemeToDOM(nextTheme);
         return { theme: nextTheme };
       });
     },
-    setTheme: (nextTheme) => {
-      if (typeof document !== 'undefined') {
-        if (nextTheme === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-        localStorage.setItem('nova-theme', nextTheme);
-      }
+    setTheme: (nextTheme: ThemeMode) => {
+      applyThemeToDOM(nextTheme);
       set({ theme: nextTheme });
     },
   };

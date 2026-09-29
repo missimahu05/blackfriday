@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: dark;
-}
-
-html:not(.dark) {
+html {
   color-scheme: light;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
 body {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Custom Scrollbar */
@@ -20,18 +20,18 @@ body {
   height: 8px;
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: #080a0f;
+html.dark ::-webkit-scrollbar-track {
+  background: #0c0f17;
 }
 
 html:not(.dark) ::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: #1f2937;
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1f293d;
   border-radius: 9999px;
-  border: 2px solid #080a0f;
+  border: 2px solid #0c0f17;
 }
 
 html:not(.dark) ::-webkit-scrollbar-thumb {
@@ -40,59 +40,10 @@ html:not(.dark) ::-webkit-scrollbar-thumb {
   border: 2px solid #f1f5f9;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #ef4444;
 }
 
-/* Glow effects */
-.glow-primary {
-  box-shadow: 0 0 50px -10px rgba(37, 99, 235, 0.45);
-}
-
-.glow-promo {
-  box-shadow: 0 0 45px -8px rgba(239, 68, 68, 0.45);
-}
-
-/* Glassmorphism */
-.glass-panel {
-  background: rgba(17, 20, 27, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-html:not(.dark) .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.glass-panel-elevated {
-  background: rgba(24, 28, 37, 0.85);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-html:not(.dark) .glass-panel-elevated {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-/* Radial ambient light meshes */
-.bg-mesh-dark {
-  background-image: 
-    radial-gradient(at 10% 20%, rgba(37, 99, 235, 0.18) 0px, transparent 50%),
-    radial-gradient(at 90% 10%, rgba(239, 68, 68, 0.12) 0px, transparent 50%),
-    radial-gradient(at 50% 80%, rgba(59, 130, 246, 0.12) 0px, transparent 50%);
-}
-
-.bg-mesh-light {
-  background-image: 
-    radial-gradient(at 10% 20%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
-    radial-gradient(at 90% 10%, rgba(239, 68, 68, 0.06) 0px, transparent 50%),
-    radial-gradient(at 50% 80%, rgba(59, 130, 246, 0.06) 0px, transparent 50%);
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
 }

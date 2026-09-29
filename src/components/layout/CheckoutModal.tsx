@@ -92,17 +92,17 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="relative w-full max-w-2xl bg-white dark:bg-brand-surface-elevated border border-gray-200 dark:border-brand-border rounded-2xl shadow-2xl overflow-hidden my-8 z-10 text-gray-900 dark:text-white"
+          className="relative w-full max-w-2xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden my-8 z-10 text-slate-900 dark:text-white"
         >
           {/* Header */}
-          <div className="p-6 border-b border-gray-200 dark:border-brand-border bg-gray-50 dark:bg-brand-surface flex items-center justify-between">
+          <div className="p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-                <Lock className="w-4 h-4 text-emerald-500" />
+              <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-red-500/10 flex items-center justify-center">
+                <Lock className="w-4 h-4 text-blue-600 dark:text-red-400" />
               </div>
               <div>
-                <h3 className="font-bold text-base text-gray-900 dark:text-white">Finalisation de Commande</h3>
-                <p className="text-[11px] text-gray-500 dark:text-gray-400">
+                <h3 className="font-bold text-base text-slate-900 dark:text-white">Finalisation de Commande</h3>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
                   Transaction 100% sécurisée - Étape {step} sur 3
                 </p>
               </div>
@@ -110,19 +110,19 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
             <button
               onClick={onClose}
-              className="p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
+              className="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
             >
               <X size={18} />
             </button>
           </div>
 
           {/* Stepper Progress */}
-          <div className="flex border-b border-gray-200 dark:border-brand-border text-xs bg-gray-50/50 dark:bg-brand-surface/50">
+          <div className="flex border-b border-slate-200 dark:border-slate-800 text-xs bg-slate-50/50 dark:bg-[#0c0f17]/50">
             <div
               className={`flex-1 py-3 px-4 text-center font-semibold border-b-2 transition-colors ${
                 step >= 1
-                  ? 'border-brand-primary text-brand-primary dark:text-white bg-blue-50/50 dark:bg-brand-primary/5'
-                  : 'border-transparent text-gray-400'
+                  ? 'border-blue-600 dark:border-red-500 text-blue-600 dark:text-red-400 font-bold bg-blue-50/50 dark:bg-red-500/10'
+                  : 'border-transparent text-slate-400'
               }`}
             >
               1. Coordonnées
@@ -130,8 +130,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             <div
               className={`flex-1 py-3 px-4 text-center font-semibold border-b-2 transition-colors ${
                 step >= 2
-                  ? 'border-brand-primary text-brand-primary dark:text-white bg-blue-50/50 dark:bg-brand-primary/5'
-                  : 'border-transparent text-gray-400'
+                  ? 'border-blue-600 dark:border-red-500 text-blue-600 dark:text-red-400 font-bold bg-blue-50/50 dark:bg-red-500/10'
+                  : 'border-transparent text-slate-400'
               }`}
             >
               2. Livraison
@@ -139,8 +139,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             <div
               className={`flex-1 py-3 px-4 text-center font-semibold border-b-2 transition-colors ${
                 step === 3
-                  ? 'border-brand-primary text-brand-primary dark:text-white bg-blue-50/50 dark:bg-brand-primary/5'
-                  : 'border-transparent text-gray-400'
+                  ? 'border-blue-600 dark:border-red-500 text-blue-600 dark:text-red-400 font-bold bg-blue-50/50 dark:bg-red-500/10'
+                  : 'border-transparent text-slate-400'
               }`}
             >
               3. Paiement Sécurisé
@@ -154,7 +154,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                      <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                         Prénom
                       </label>
                       <input
@@ -163,11 +163,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 dark:bg-brand-surface border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                      <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                         Nom
                       </label>
                       <input
@@ -176,13 +176,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 dark:bg-brand-surface border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                       Email de confirmation
                     </label>
                     <input
@@ -191,12 +191,12 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 dark:bg-brand-surface border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                       Téléphone pour le suivi du transporteur
                     </label>
                     <input
@@ -205,7 +205,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 dark:bg-brand-surface border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                     />
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               {step === 2 && (
                 <div className="space-y-4">
                   <div>
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                       Adresse de livraison
                     </label>
                     <input
@@ -223,13 +223,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       value={formData.address}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 dark:bg-brand-surface border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                      <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                         Code Postal
                       </label>
                       <input
@@ -238,11 +238,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.postalCode}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 dark:bg-brand-surface border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                      <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                         Ville
                       </label>
                       <input
@@ -251,24 +251,24 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.city}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 dark:bg-brand-surface border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none focus:border-brand-primary"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl border border-brand-primary/40 bg-blue-50 dark:bg-brand-primary/10 flex items-center justify-between">
+                  <div className="p-3.5 rounded-xl border border-blue-200 dark:border-red-900/50 bg-blue-50 dark:bg-red-950/40 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <Truck className="w-5 h-5 text-blue-500" />
+                      <Truck className="w-5 h-5 text-blue-600 dark:text-red-400" />
                       <div>
-                        <span className="text-xs font-bold text-gray-900 dark:text-white block">
+                        <span className="text-xs font-bold text-slate-900 dark:text-white block">
                           Livraison Prioritaire Black Friday Express (24-48h)
                         </span>
-                        <span className="text-[11px] text-gray-600 dark:text-gray-300">
+                        <span className="text-[11px] text-slate-600 dark:text-slate-300">
                           Colis préparé et expédié sous scellé sécurisé
                         </span>
                       </div>
                     </div>
-                    <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Gratuit</span>
+                    <span className="text-xs font-bold text-blue-600 dark:text-red-400 uppercase">Gratuit</span>
                   </div>
                 </div>
               )}
@@ -281,11 +281,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       onClick={() => setFormData({ ...formData, paymentMethod: 'card' })}
                       className={`p-3 rounded-xl border text-xs font-semibold flex flex-col items-center gap-1.5 transition-all ${
                         formData.paymentMethod === 'card'
-                          ? 'border-brand-primary bg-blue-50 dark:bg-brand-primary/10 text-brand-primary dark:text-white'
-                          : 'border-gray-200 dark:border-brand-border bg-gray-50 dark:bg-brand-surface text-gray-500 dark:text-gray-400'
+                          ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 font-bold'
+                          : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] text-slate-500 dark:text-slate-400'
                       }`}
                     >
-                      <CreditCard size={18} className="text-blue-500" />
+                      <CreditCard size={18} className="text-blue-600 dark:text-red-400" />
                       <span>Carte Bancaire</span>
                     </button>
 
@@ -294,11 +294,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       onClick={() => setFormData({ ...formData, paymentMethod: 'paypal' })}
                       className={`p-3 rounded-xl border text-xs font-semibold flex flex-col items-center gap-1.5 transition-all ${
                         formData.paymentMethod === 'paypal'
-                          ? 'border-brand-primary bg-blue-50 dark:bg-brand-primary/10 text-brand-primary dark:text-white'
-                          : 'border-gray-200 dark:border-brand-border bg-gray-50 dark:bg-brand-surface text-gray-500 dark:text-gray-400'
+                          ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 font-bold'
+                          : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] text-slate-500 dark:text-slate-400'
                       }`}
                     >
-                      <ShieldCheck size={18} className="text-amber-500" />
+                      <ShieldCheck size={18} className="text-blue-600 dark:text-red-400" />
                       <span>PayPal</span>
                     </button>
 
@@ -307,18 +307,18 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       onClick={() => setFormData({ ...formData, paymentMethod: 'applepay' })}
                       className={`p-3 rounded-xl border text-xs font-semibold flex flex-col items-center gap-1.5 transition-all ${
                         formData.paymentMethod === 'applepay'
-                          ? 'border-brand-primary bg-blue-50 dark:bg-brand-primary/10 text-brand-primary dark:text-white'
-                          : 'border-gray-200 dark:border-brand-border bg-gray-50 dark:bg-brand-surface text-gray-500 dark:text-gray-400'
+                          ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 font-bold'
+                          : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] text-slate-500 dark:text-slate-400'
                       }`}
                     >
-                      <Lock size={18} className="text-emerald-500" />
+                      <Lock size={18} className="text-blue-600 dark:text-red-400" />
                       <span>Apple Pay</span>
                     </button>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-gray-50 dark:bg-brand-surface border border-gray-200 dark:border-brand-border space-y-3">
+                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#0c0f17] border border-slate-200 dark:border-slate-800 space-y-3">
                     <div>
-                      <label className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                      <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                         Numéro de Carte
                       </label>
                       <input
@@ -327,12 +327,12 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.cardNumber}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-brand-surface-elevated border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none"
+                        className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#131722] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                        <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                           Expiration (MM/AA)
                         </label>
                         <input
@@ -341,11 +341,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                           value={formData.cardExpiry}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-brand-surface-elevated border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none"
+                          className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#131722] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                         />
                       </div>
                       <div>
-                        <label className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 block mb-1">
+                        <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                           Cryptogramme (CVC)
                         </label>
                         <input
@@ -354,44 +354,44 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                           value={formData.cardCvc}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-brand-surface-elevated border border-gray-300 dark:border-brand-border text-xs text-gray-900 dark:text-white focus:outline-none"
+                          className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#131722] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                         />
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-gray-50 dark:bg-brand-surface border border-gray-200 dark:border-white/5 space-y-1.5 text-xs">
-                    <div className="flex justify-between text-gray-500 dark:text-gray-400">
+                  <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0c0f17] border border-slate-200 dark:border-white/5 space-y-1.5 text-xs">
+                    <div className="flex justify-between text-slate-500 dark:text-slate-400">
                       <span>Total articles ({items.length})</span>
                       <span>{total} €</span>
                     </div>
                     {savings > 0 && (
-                      <div className="flex justify-between text-emerald-600 dark:text-emerald-400 font-medium">
+                      <div className="flex justify-between text-blue-600 dark:text-red-400 font-medium">
                         <span>Économies réalisées</span>
                         <span>-{savings} €</span>
                       </div>
                     )}
-                    <div className="flex justify-between text-gray-500 dark:text-gray-400">
+                    <div className="flex justify-between text-slate-500 dark:text-slate-400">
                       <span>Frais de port</span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-medium">Offerts</span>
+                      <span className="text-blue-600 dark:text-red-400 font-medium">Offerts</span>
                     </div>
-                    <div className="flex justify-between text-base font-bold text-gray-900 dark:text-white pt-1.5 border-t border-gray-200 dark:border-white/5">
+                    <div className="flex justify-between text-base font-bold text-slate-900 dark:text-white pt-1.5 border-t border-slate-200 dark:border-white/5">
                       <span>Montant prélevé</span>
-                      <span className="text-lg font-black">{total.toLocaleString('fr-FR')} €</span>
+                      <span className="text-lg font-black text-blue-600 dark:text-white">{total.toLocaleString('fr-FR')} €</span>
                     </div>
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="p-6 border-t border-gray-200 dark:border-brand-border bg-gray-50 dark:bg-brand-surface flex items-center justify-between gap-4">
+            <div className="p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] flex items-center justify-between gap-4">
               {step > 1 ? (
                 <Button
                   type="button"
                   variant="outline"
                   size="sm"
                   onClick={() => setStep((step - 1) as 1 | 2)}
-                  className="text-gray-700 dark:text-white"
+                  className="text-slate-700 dark:text-white"
                 >
                   <ChevronLeft size={16} />
                   <span>Précédent</span>
@@ -408,10 +408,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               ) : (
                 <Button
                   type="submit"
-                  variant="promo"
+                  variant="primary"
                   size="lg"
                   isLoading={isProcessing}
-                  className="shadow-lg shadow-brand-promo/30"
+                  className="shadow-lg shadow-blue-600/20 dark:shadow-red-600/30"
                 >
                   <Lock size={16} />
                   <span>Confirmer et Payer {total.toLocaleString('fr-FR')} €</span>
