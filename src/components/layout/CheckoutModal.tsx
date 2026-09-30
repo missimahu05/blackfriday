@@ -92,10 +92,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="relative w-full max-w-2xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden my-8 z-10 text-slate-900 dark:text-white"
+          className="relative w-full max-w-2xl bg-white dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] rounded-2xl shadow-2xl overflow-hidden my-8 z-10 text-slate-900 dark:text-white"
         >
           {/* Header */}
-          <div className="p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] flex items-center justify-between">
+          <div className="p-6 border-b border-slate-200 dark:border-[#232936] bg-slate-50 dark:bg-[#080A0F] flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-red-500/10 flex items-center justify-center">
                 <Lock className="w-4 h-4 text-blue-600 dark:text-red-400" />
@@ -117,7 +117,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           </div>
 
           {/* Stepper Progress */}
-          <div className="flex border-b border-slate-200 dark:border-slate-800 text-xs bg-slate-50/50 dark:bg-[#0c0f17]/50">
+          <div className="flex border-b border-slate-200 dark:border-[#232936] text-xs bg-slate-50/50 dark:bg-[#080A0F]/50">
             <div
               className={`flex-1 py-3 px-4 text-center font-semibold border-b-2 transition-colors ${
                 step >= 1
@@ -163,7 +163,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#080A0F] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                     <div>
@@ -176,7 +176,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#080A0F] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#080A0F] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                     />
                   </div>
 
@@ -205,7 +205,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#080A0F] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                     />
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       value={formData.address}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#080A0F] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                     />
                   </div>
 
@@ -238,7 +238,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.postalCode}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#080A0F] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                     <div>
@@ -251,7 +251,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.city}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-[#080A0F] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                   </div>
@@ -282,7 +282,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       className={`p-3 rounded-xl border text-xs font-semibold flex flex-col items-center gap-1.5 transition-all ${
                         formData.paymentMethod === 'card'
                           ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 font-bold'
-                          : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] text-slate-500 dark:text-slate-400'
+                          : 'border-slate-200 dark:border-[#232936] bg-slate-50 dark:bg-[#080A0F] text-slate-500 dark:text-slate-400'
                       }`}
                     >
                       <CreditCard size={18} className="text-blue-600 dark:text-red-400" />
@@ -295,7 +295,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       className={`p-3 rounded-xl border text-xs font-semibold flex flex-col items-center gap-1.5 transition-all ${
                         formData.paymentMethod === 'paypal'
                           ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 font-bold'
-                          : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] text-slate-500 dark:text-slate-400'
+                          : 'border-slate-200 dark:border-[#232936] bg-slate-50 dark:bg-[#080A0F] text-slate-500 dark:text-slate-400'
                       }`}
                     >
                       <ShieldCheck size={18} className="text-blue-600 dark:text-red-400" />
@@ -308,7 +308,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       className={`p-3 rounded-xl border text-xs font-semibold flex flex-col items-center gap-1.5 transition-all ${
                         formData.paymentMethod === 'applepay'
                           ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 font-bold'
-                          : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] text-slate-500 dark:text-slate-400'
+                          : 'border-slate-200 dark:border-[#232936] bg-slate-50 dark:bg-[#080A0F] text-slate-500 dark:text-slate-400'
                       }`}
                     >
                       <Lock size={18} className="text-blue-600 dark:text-red-400" />
@@ -316,7 +316,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     </button>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#0c0f17] border border-slate-200 dark:border-slate-800 space-y-3">
+                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#080A0F] border border-slate-200 dark:border-[#232936] space-y-3">
                     <div>
                       <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                         Numéro de Carte
@@ -327,7 +327,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         value={formData.cardNumber}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#131722] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                        className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#11141B] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-3">
@@ -341,7 +341,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                           value={formData.cardExpiry}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#131722] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                          className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#11141B] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                         />
                       </div>
                       <div>
@@ -354,13 +354,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                           value={formData.cardCvc}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#131722] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                          className="w-full px-3.5 py-2 rounded-lg bg-white dark:bg-[#11141B] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                         />
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0c0f17] border border-slate-200 dark:border-white/5 space-y-1.5 text-xs">
+                  <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#080A0F] border border-slate-200 dark:border-white/5 space-y-1.5 text-xs">
                     <div className="flex justify-between text-slate-500 dark:text-slate-400">
                       <span>Total articles ({items.length})</span>
                       <span>{total} €</span>
@@ -384,7 +384,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               )}
             </div>
 
-            <div className="p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] flex items-center justify-between gap-4">
+            <div className="p-6 border-t border-slate-200 dark:border-[#232936] bg-slate-50 dark:bg-[#080A0F] flex items-center justify-between gap-4">
               {step > 1 ? (
                 <Button
                   type="button"

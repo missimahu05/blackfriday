@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ShieldCheck, Truck, ShoppingCart, Clock, Check } from 'lucide-react';
+import { Flame, ShieldCheck, Truck, ShoppingCart, Clock, Check } from 'lucide-react';
 import { SPOTLIGHT_PRODUCT } from '../../data/products';
 import { useCartStore } from '../../store/useCartStore';
 import { useNotificationStore } from '../../store/useNotificationStore';
@@ -29,9 +29,9 @@ export const SpotlightDealSection: React.FC<SpotlightDealSectionProps> = ({
   };
 
   return (
-    <section id="spotlight" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-slate-800 relative flex flex-col justify-center overflow-hidden transition-colors duration-300">
+    <section id="spotlight" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-[#232936] relative flex flex-col justify-center overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-white via-slate-50 to-blue-50/40 dark:from-[#1b202e] dark:via-[#131722] dark:to-[#0c0f17] border border-blue-100 dark:border-slate-800 shadow-xl dark:shadow-2xl">
+        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-white via-slate-50 to-blue-50/40 dark:from-[#181C25] dark:via-[#11141B] dark:to-[#080A0F] border border-blue-100 dark:border-[#232936] shadow-xl dark:shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Visual showcase */}
             <div className="lg:col-span-6 relative">
@@ -47,7 +47,7 @@ export const SpotlightDealSection: React.FC<SpotlightDealSectionProps> = ({
 
                 <div className="absolute top-4 left-4 flex flex-col gap-2">
                   <span className="bg-blue-600 dark:bg-red-600 text-white font-black text-xs px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-1.5">
-                    <Sparkles size={13} />
+                    <Flame size={13} />
                     Offre Phare de la Semaine
                   </span>
                   <span className="bg-white/95 dark:bg-black/75 backdrop-blur-md text-blue-600 dark:text-red-400 font-bold text-xs px-3 py-1 rounded-full border border-blue-200 dark:border-red-900/50 shadow-sm">
@@ -77,7 +77,7 @@ export const SpotlightDealSection: React.FC<SpotlightDealSectionProps> = ({
               </div>
 
               {/* Price card */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#131722] border border-blue-100 dark:border-slate-800 shadow-sm">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#11141B] border border-blue-100 dark:border-[#232936] shadow-sm">
                 <PriceTag
                   price={product.price}
                   oldPrice={product.oldPrice}
@@ -102,7 +102,7 @@ export const SpotlightDealSection: React.FC<SpotlightDealSectionProps> = ({
               </div>
 
               {/* Action buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+              <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100 dark:border-[#232936]">
                 <Button
                   variant="primary"
                   size="lg"

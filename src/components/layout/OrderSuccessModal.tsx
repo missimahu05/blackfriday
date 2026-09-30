@@ -31,7 +31,7 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-lg bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-6 sm:p-8 text-center my-8 z-10 text-slate-900 dark:text-white"
+          className="relative w-full max-w-lg bg-white dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] rounded-2xl shadow-2xl p-6 sm:p-8 text-center my-8 z-10 text-slate-900 dark:text-white"
         >
           <div className="w-20 h-20 rounded-full bg-blue-50 dark:bg-red-500/10 border border-blue-200 dark:border-red-500/30 flex items-center justify-center mx-auto mb-6 shadow-xl shadow-blue-500/10 dark:shadow-red-500/20">
             <CheckCircle2 className="w-10 h-10 text-blue-600 dark:text-red-500" />
@@ -49,7 +49,7 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
             Votre commande a bien été enregistrée et transmise à notre centre logistique prioritaire Black Friday.
           </p>
 
-          <div className="mt-6 p-4 rounded-xl bg-slate-50 dark:bg-[#0c0f17] border border-slate-200 dark:border-slate-800 text-left space-y-3">
+          <div className="mt-6 p-4 rounded-xl bg-slate-50 dark:bg-[#080A0F] border border-slate-200 dark:border-[#232936] text-left space-y-3">
             <div className="flex justify-between items-center text-xs border-b border-slate-200 dark:border-white/5 pb-2.5">
               <span className="text-slate-500 dark:text-slate-400">Numéro de commande</span>
               <span className="font-mono font-bold text-slate-900 dark:text-white tracking-wider">{orderId}</span>

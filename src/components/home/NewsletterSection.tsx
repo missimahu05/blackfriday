@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, ArrowRight, CheckCircle2, Lock, Sparkles } from 'lucide-react';
+import { Mail, ArrowRight, CheckCircle2, Lock, Zap } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 export const NewsletterSection: React.FC = () => {
@@ -15,11 +15,11 @@ export const NewsletterSection: React.FC = () => {
   return (
     <section className="py-16 lg:py-20 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-gradient-to-r from-white via-slate-50 to-blue-50/40 dark:from-[#1b202e] dark:via-[#131722] dark:to-[#0c0f17] border border-slate-200 dark:border-slate-800 p-8 sm:p-12 shadow-xl dark:shadow-2xl text-center max-w-3xl mx-auto">
+        <div className="relative rounded-3xl bg-gradient-to-r from-white via-slate-50 to-blue-50/40 dark:from-[#181C25] dark:via-[#11141B] dark:to-[#080A0F] border border-slate-200 dark:border-[#232936] p-8 sm:p-12 shadow-xl dark:shadow-2xl text-center max-w-3xl mx-auto">
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 dark:bg-red-600/10 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-red-500/10 border border-blue-200 dark:border-red-500/20 text-blue-700 dark:text-red-400 text-xs font-bold uppercase tracking-wider mb-4">
-            <Sparkles size={13} />
+            <Zap size={13} />
             Accès Privilège Coupe-File
           </div>
 
@@ -46,7 +46,7 @@ export const NewsletterSection: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 rounded-xl bg-white dark:bg-[#0c0f17] border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl bg-white dark:bg-[#080A0F] border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                 />
               </div>
 

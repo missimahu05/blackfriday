@@ -141,7 +141,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Dynamic Countdown */}
             <motion.div
               variants={itemVariants}
-              className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#131722] border border-blue-100 dark:border-slate-800 max-w-lg mx-auto lg:mx-0 shadow-lg"
+              className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#11141B] border border-blue-100 dark:border-[#232936] max-w-lg mx-auto lg:mx-0 shadow-lg"
             >
               <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-3">
                 <span className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-blue-600 dark:text-red-400">
@@ -163,7 +163,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 ].map((unit, idx) => (
                   <div
                     key={idx}
-                    className="p-2 sm:p-3 rounded-xl bg-slate-50 dark:bg-[#1b202e] border border-slate-200 dark:border-slate-800"
+                    className="p-2 sm:p-3 rounded-xl bg-slate-50 dark:bg-[#181C25] border border-slate-200 dark:border-[#232936]"
                   >
                     <span
                       className={`text-2xl sm:text-3xl font-black font-mono block ${
@@ -235,7 +235,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               onClick={() => onSelectProduct(SPOTLIGHT_PRODUCT)}
               className="w-full max-w-md cursor-pointer group"
             >
-              <div className="relative aspect-square rounded-3xl bg-gradient-to-b from-slate-100 to-white dark:from-[#1b202e] dark:to-[#131722] border border-blue-100 dark:border-slate-800 p-6 shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-blue-500/15 dark:group-hover:shadow-red-500/15">
+              <div className="relative aspect-square rounded-3xl bg-gradient-to-b from-slate-100 to-white dark:from-[#181C25] dark:to-[#11141B] border border-blue-100 dark:border-[#232936] p-6 shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-blue-500/15 dark:group-hover:shadow-red-500/15">
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.5 }}
@@ -265,7 +265,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </motion.div>
 
                 {/* Bottom Spec Summary */}
-                <div className="absolute bottom-6 left-6 right-6 z-20 p-4 rounded-xl bg-white/95 dark:bg-[#131722]/95 backdrop-blur-md border border-blue-100 dark:border-slate-800 shadow-2xl flex items-center justify-between">
+                <div className="absolute bottom-6 left-6 right-6 z-20 p-4 rounded-xl bg-white/95 dark:bg-[#11141B]/95 backdrop-blur-md border border-blue-100 dark:border-[#232936] shadow-2xl flex items-center justify-between">
                   <div>
                     <h4 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">
                       {SPOTLIGHT_PRODUCT.name}

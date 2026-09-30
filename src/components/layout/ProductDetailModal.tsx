@@ -79,7 +79,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-4xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden my-8 z-10 text-slate-900 dark:text-white"
+          className="relative w-full max-w-4xl bg-white dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] rounded-2xl shadow-2xl overflow-hidden my-8 z-10 text-slate-900 dark:text-white"
         >
           <button
             onClick={onClose}
@@ -91,7 +91,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Gallery Left */}
-            <div className="p-6 md:p-8 bg-slate-50 dark:bg-[#0c0f17] flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800">
+            <div className="p-6 md:p-8 bg-slate-50 dark:bg-[#080A0F] flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200 dark:border-[#232936]">
               <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-200 dark:bg-black/40 border border-slate-200 dark:border-white/10 group mb-4">
                 <img
                   src={selectedImage}
@@ -138,7 +138,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   {product.name}
                 </h2>
 
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#131722] border border-slate-200 dark:border-slate-800">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#11141B] border border-slate-200 dark:border-[#232936]">
                   <PriceTag
                     price={product.price}
                     oldPrice={product.oldPrice}
@@ -170,7 +170,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                           className={`relative px-3 py-1.5 rounded-lg border text-xs font-medium flex items-center gap-2 transition-all ${
                             selectedColor === c.name
                               ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-700 dark:text-red-400 font-bold'
-                              : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131722] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                              : 'border-slate-200 dark:border-[#232936] bg-white dark:bg-[#11141B] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                           }`}
                         >
                           <span
@@ -200,9 +200,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               {/* Action Buttons */}
-              <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-[#232936]">
                 <div className="flex gap-3">
-                  <div className="flex items-center border border-slate-300 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-[#131722] px-2">
+                  <div className="flex items-center border border-slate-300 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-[#11141B] px-2">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
                       className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-red-400 px-2 py-1 text-sm font-bold"
@@ -234,7 +234,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     className={`p-3 rounded-lg border transition-colors ${
                       isFavorite
                         ? 'border-blue-600 dark:border-red-500 bg-blue-50 dark:bg-red-500/10 text-blue-600 dark:text-red-500'
-                        : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#131722] text-slate-400 hover:text-blue-600 dark:hover:text-red-400'
+                        : 'border-slate-200 dark:border-[#232936] bg-slate-50 dark:bg-[#11141B] text-slate-400 hover:text-blue-600 dark:hover:text-red-400'
                     }`}
                     aria-label="Ajouter aux favoris"
                   >

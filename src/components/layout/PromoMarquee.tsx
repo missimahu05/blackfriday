@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Zap, ShieldCheck, Sparkles, Tag, ArrowUpRight } from 'lucide-react';
+import { Flame, Zap, ShieldCheck, Award, Tag, ArrowUpRight } from 'lucide-react';
 
 export const PromoMarquee: React.FC = () => {
   const items = [
@@ -7,7 +7,7 @@ export const PromoMarquee: React.FC = () => {
     { text: "VENTES FLASH SONY, PS5, APPLE & LG", icon: Zap, color: "text-blue-500" },
     { text: "CODE BLACK10 : -10% IMMÉDIATS DANS LE PANIER", icon: Tag, color: "text-amber-500" },
     { text: "EXPÉDITION EXPRESS 24H OFFERTE DÈS 75 €", icon: ShieldCheck, color: "text-emerald-500" },
-    { text: "STOCKS PHYSIQUES RÉSERVÉS EN DIRECT", icon: Sparkles, color: "text-purple-500" },
+    { text: "STOCKS PHYSIQUES RÉSERVÉS EN DIRECT", icon: Award, color: "text-blue-500 dark:text-red-500" },
   ];
 
   return (

@@ -24,7 +24,7 @@ export const FlashDealsSection: React.FC<FlashDealsSectionProps> = ({
   }, []);
 
   return (
-    <section id="flash-deals" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-slate-800 relative flex flex-col justify-center transition-colors duration-300">
+    <section id="flash-deals" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-[#232936] relative flex flex-col justify-center transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -44,7 +44,7 @@ export const FlashDealsSection: React.FC<FlashDealsSectionProps> = ({
           <div className="flex items-center gap-3">
             <button
               onClick={onExploreAll}
-              className="inline-flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-red-400 bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 px-4 py-2.5 rounded-xl shadow-sm transition-colors group"
+              className="inline-flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-red-400 bg-white dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] px-4 py-2.5 rounded-xl shadow-sm transition-colors group"
             >
               <span>Voir tout le catalogue</span>
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />

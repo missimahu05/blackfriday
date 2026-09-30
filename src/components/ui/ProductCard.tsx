@@ -47,7 +47,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
       whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 350, damping: 25 }}
       onClick={() => onQuickView(product)}
-      className="group relative flex flex-col justify-between rounded-2xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 hover:border-blue-500/60 dark:hover:border-red-500/60 transition-colors duration-300 shadow-sm hover:shadow-xl dark:shadow-none dark:hover:shadow-red-500/10 overflow-hidden cursor-pointer"
+      className="group relative flex flex-col justify-between rounded-2xl bg-white dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] hover:border-blue-500/60 dark:hover:border-red-500/60 transition-colors duration-300 shadow-sm hover:shadow-xl dark:shadow-none dark:hover:shadow-red-500/10 overflow-hidden cursor-pointer"
     >
       {/* Product Image Area */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-black/40">

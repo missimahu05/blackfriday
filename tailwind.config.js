@@ -9,13 +9,13 @@ export default {
     extend: {
       colors: {
         brand: {
-          bg: '#0c0f17', // Noir grisâtre anthracite
+          bg: '#080A0F', // Profond noir OLED obsidienne
           'bg-light': '#FFFFFF', // Blanc éclatant
-          surface: '#131722',
+          surface: '#11141B',
           'surface-light': '#FFFFFF',
-          'surface-elevated': '#1b202e',
+          'surface-elevated': '#181C25',
           'surface-elevated-light': '#F8FAFC',
-          border: '#232a3b',
+          border: '#232936',
           'border-light': '#E2E8F0',
           muted: '#94A3B8',
           'muted-light': '#64748B',

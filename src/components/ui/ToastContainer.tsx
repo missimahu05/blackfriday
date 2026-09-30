@@ -16,7 +16,7 @@ export const ToastContainer: React.FC = () => {
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
-              className="pointer-events-auto flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 shadow-2xl text-slate-900 dark:text-white backdrop-blur-md"
+              className="pointer-events-auto flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] shadow-2xl text-slate-900 dark:text-white backdrop-blur-md"
             >
               <div className="shrink-0 mt-0.5">
                 {toast.type === 'success' && (

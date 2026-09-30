@@ -4,7 +4,7 @@ import { REVIEWS } from '../../data/reviews';
 
 export const ReviewsSection: React.FC = () => {
   return (
-    <section id="reviews" className="py-16 lg:py-24 border-b border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-[#0c0f17] transition-colors duration-300">
+    <section id="reviews" className="py-16 lg:py-24 border-b border-slate-200 dark:border-[#232936] bg-slate-50/60 dark:bg-[#080A0F] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-red-500/10 border border-blue-200 dark:border-red-500/20 text-blue-700 dark:text-red-400 text-xs font-bold uppercase tracking-wider mb-3">
@@ -33,7 +33,7 @@ export const ReviewsSection: React.FC = () => {
           {REVIEWS.map((rev) => (
             <div
               key={rev.id}
-              className="p-6 rounded-2xl bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md transition-shadow"
+              className="p-6 rounded-2xl bg-white dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">

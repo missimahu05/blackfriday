@@ -42,9 +42,9 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-              className="w-screen max-w-md bg-white dark:bg-[#131722] border-l border-slate-200 dark:border-slate-800 flex flex-col shadow-2xl text-slate-900 dark:text-white"
+              className="w-screen max-w-md bg-white dark:bg-[#11141B] border-l border-slate-200 dark:border-[#232936] flex flex-col shadow-2xl text-slate-900 dark:text-white"
             >
-              <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-[#0c0f17]">
+              <div className="p-5 border-b border-slate-200 dark:border-[#232936] flex items-center justify-between bg-slate-50 dark:bg-[#080A0F]">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-red-500/10 flex items-center justify-center">
                     <Heart className="w-4 h-4 text-blue-600 dark:text-red-400" />
@@ -86,7 +86,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
                   items.map((product) => (
                     <div
                       key={product.id}
-                      className="flex gap-3.5 p-3 rounded-xl bg-slate-50 dark:bg-[#1b202e] border border-slate-200 dark:border-slate-800 shadow-sm"
+                      className="flex gap-3.5 p-3 rounded-xl bg-slate-50 dark:bg-[#181C25] border border-slate-200 dark:border-[#232936] shadow-sm"
                     >
                       <img
                         src={product.image}
@@ -149,7 +149,7 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({ onSelectProduct 
               </div>
 
               {items.length > 0 && (
-                <div className="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17]">
+                <div className="p-5 border-t border-slate-200 dark:border-[#232936] bg-slate-50 dark:bg-[#080A0F]">
                   <Button
                     variant="primary"
                     size="md"

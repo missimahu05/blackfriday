@@ -79,10 +79,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToCheckout }) =
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-              className="w-screen max-w-md bg-white dark:bg-[#131722] border-l border-slate-200 dark:border-slate-800 flex flex-col shadow-2xl text-slate-900 dark:text-white"
+              className="w-screen max-w-md bg-white dark:bg-[#11141B] border-l border-slate-200 dark:border-[#232936] flex flex-col shadow-2xl text-slate-900 dark:text-white"
             >
               {/* Drawer Header */}
-              <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-[#0c0f17]">
+              <div className="p-5 border-b border-slate-200 dark:border-[#232936] flex items-center justify-between bg-slate-50 dark:bg-[#080A0F]">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-red-950/40 flex items-center justify-center">
                     <ShoppingBag className="w-4 h-4 text-blue-600 dark:text-red-400" />
@@ -127,7 +127,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToCheckout }) =
                     return (
                       <div
                         key={`${item.product.id}-${item.selectedColor}`}
-                        className="flex gap-3.5 p-3 rounded-xl bg-slate-50 dark:bg-[#1b202e] border border-slate-200 dark:border-slate-800 relative group shadow-sm"
+                        className="flex gap-3.5 p-3 rounded-xl bg-slate-50 dark:bg-[#181C25] border border-slate-200 dark:border-[#232936] relative group shadow-sm"
                       >
                         <img
                           src={item.product.image}
@@ -156,7 +156,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToCheckout }) =
                           </div>
 
                           <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-200 dark:border-white/5">
-                            <div className="flex items-center border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-[#131722]">
+                            <div className="flex items-center border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-[#11141B]">
                               <button
                                 onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
                                 className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-red-400 transition-colors"
@@ -201,7 +201,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToCheckout }) =
 
               {/* Drawer Footer */}
               {items.length > 0 && (
-                <div className="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0c0f17] space-y-4">
+                <div className="p-5 border-t border-slate-200 dark:border-[#232936] bg-slate-50 dark:bg-[#080A0F] space-y-4">
                   <form onSubmit={handleApplyPromo} className="space-y-1.5">
                     <div className="flex gap-2">
                       <div className="relative flex-1">
@@ -211,7 +211,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onProceedToCheckout }) =
                           placeholder="Code promo (ex: BLACK10)"
                           value={promoInput}
                           onChange={(e) => setPromoInput(e.target.value)}
-                          className="w-full pl-8 pr-3 py-2 bg-white dark:bg-[#131722] rounded-xl border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white uppercase placeholder-slate-400 focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
+                          className="w-full pl-8 pr-3 py-2 bg-white dark:bg-[#11141B] rounded-xl border border-slate-300 dark:border-[#232936] text-xs text-slate-900 dark:text-white uppercase placeholder-slate-400 focus:outline-none focus:border-blue-600 dark:focus:border-red-500"
                         />
                       </div>
                       <Button type="submit" variant="secondary" size="sm">

@@ -65,7 +65,7 @@ export function App() {
   return (
     <div
       data-theme={theme}
-      className={`min-h-screen ${theme === 'dark' ? 'dark' : ''} bg-white dark:bg-[#0c0f17] text-slate-900 dark:text-white flex flex-col font-sans selection:bg-blue-600 dark:selection:bg-red-600 selection:text-white transition-colors duration-200`}
+      className={`min-h-screen ${theme === 'dark' ? 'dark' : ''} bg-white dark:bg-[#080A0F] text-slate-900 dark:text-white flex flex-col font-sans selection:bg-blue-600 dark:selection:bg-red-600 selection:text-white transition-colors duration-200`}
     >
       {/* Sticky Navbar without clutter bands */}
       <Navbar
@@ -138,7 +138,7 @@ export function App() {
       <aside aria-label="Sélecteur de mode d'affichage" className="fixed bottom-5 left-5 z-40">
         <button
           onClick={toggleTheme}
-          className="group flex items-center gap-2.5 px-3.5 py-2.5 rounded-full bg-white dark:bg-[#131722] text-slate-800 dark:text-white border-2 border-blue-600 dark:border-red-600 shadow-xl shadow-blue-500/20 dark:shadow-red-500/25 hover:scale-105 active:scale-95 transition-all focus:outline-none"
+          className="group flex items-center gap-2.5 px-3.5 py-2.5 rounded-full bg-white dark:bg-[#11141B] text-slate-800 dark:text-white border-2 border-blue-600 dark:border-red-600 shadow-xl shadow-blue-500/20 dark:shadow-red-500/25 hover:scale-105 active:scale-95 transition-all focus:outline-none"
           title={theme === 'dark' ? 'Basculer en Mode Clair (Blanc & Bleu)' : 'Basculer en Mode Sombre (Noir & Rouge)'}
         >
           {theme === 'dark' ? (

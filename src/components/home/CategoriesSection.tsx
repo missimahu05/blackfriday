@@ -26,7 +26,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onSelectCa
   };
 
   return (
-    <section id="categories" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0c0f17] flex flex-col justify-center transition-colors duration-300">
+    <section id="categories" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-[#232936] bg-slate-50/50 dark:bg-[#080A0F] flex flex-col justify-center transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
@@ -49,7 +49,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onSelectCa
             <div
               key={cat.id}
               onClick={() => onSelectCategory(cat.id)}
-              className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#131722] border border-slate-200 dark:border-slate-800 hover:border-blue-500/60 dark:hover:border-red-500/60 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl dark:shadow-none flex flex-col justify-between"
+              className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] hover:border-blue-500/60 dark:hover:border-red-500/60 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl dark:shadow-none flex flex-col justify-between"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-black/40">
                 <img
