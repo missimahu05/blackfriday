@@ -14,8 +14,7 @@ export const NewsletterSection: React.FC = () => {
 
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden transition-colors duration-300 bg-white dark:bg-[#080A0F]">
-      {/* Ambient background glow and grid */}
-      <div className="absolute inset-0 bg-grid-light dark:bg-grid-dark opacity-60 pointer-events-none" />
+      {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-blue-500/5 dark:bg-red-500/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

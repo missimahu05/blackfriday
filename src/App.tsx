@@ -56,7 +56,7 @@ export function App() {
   return (
     <div
       data-theme={theme}
-      className={`min-h-screen ${theme === 'dark' ? 'dark bg-mesh-dark bg-grid-dark text-white' : 'bg-mesh-light bg-grid-light text-slate-900'} flex flex-col font-sans selection:bg-blue-600 dark:selection:bg-red-600 selection:text-white transition-colors duration-200`}
+      className={`min-h-screen ${theme === 'dark' ? 'dark bg-[#080A0F] text-white' : 'bg-white text-slate-900'} flex flex-col font-sans selection:bg-blue-600 dark:selection:bg-red-600 selection:text-white transition-colors duration-200`}
     >
       {/* Sticky Navbar without clutter bands */}
       <Navbar

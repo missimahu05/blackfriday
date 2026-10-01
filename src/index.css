@@ -78,21 +78,6 @@ html:not(.dark) ::-webkit-scrollbar-thumb:hover {
       radial-gradient(at 15% 85%, rgba(29, 78, 216, 0.06) 0px, transparent 45%),
       radial-gradient(at 85% 85%, rgba(37, 99, 235, 0.08) 0px, transparent 45%);
   }
-
-  /* Subtle Ambient Micro-Grid Patterns */
-  .bg-grid-dark {
-    background-size: 36px 36px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  }
-
-  .bg-grid-light {
-    background-size: 36px 36px;
-    background-image: 
-      linear-gradient(to right, rgba(37, 99, 235, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
-  }
 }
 
 /* Glassmorphism Panels */
