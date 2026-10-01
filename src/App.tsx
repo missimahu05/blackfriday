@@ -16,7 +16,6 @@ import { FeaturedProductsSection } from './components/home/FeaturedProductsSecti
 import { ReviewsSection } from './components/home/ReviewsSection';
 import { NewsletterSection } from './components/home/NewsletterSection';
 
-import { Sun, Moon } from 'lucide-react';
 import { useThemeStore, applyThemeToDOM } from './store/useThemeStore';
 import type { Product, ProductCategory } from './types';
 
@@ -26,7 +25,7 @@ export function App() {
   const [completedOrder, setCompletedOrder] = useState<{ id: string; total: number } | null>(null);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<ProductCategory | 'all'>('all');
 
-  const { theme, setTheme } = useThemeStore();
+  const { theme } = useThemeStore();
 
   // Force documentElement & body class synchronization
   useEffect(() => {
@@ -125,36 +124,6 @@ export function App() {
         total={completedOrder?.total || 0}
         onClose={() => setCompletedOrder(null)}
       />
-
-      {/* Floating Theme Quick Switcher (Dual segmented pill with active illuminated badge) */}
-      <aside aria-label="Sélecteur de mode d'affichage" className="fixed bottom-5 left-5 z-40">
-        <div className="flex items-center p-1 rounded-full bg-white/95 dark:bg-[#11141B]/95 backdrop-blur-md border border-slate-300 dark:border-[#232936] shadow-2xl shadow-slate-900/15 dark:shadow-black/60">
-          <button
-            onClick={() => setTheme('light')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all focus:outline-none ${
-              theme === 'light'
-                ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-            }`}
-            title="Activer le Mode Clair (Blanc & Bleu)"
-          >
-            <Sun className="w-3.5 h-3.5" />
-            <span>Clair</span>
-          </button>
-          <button
-            onClick={() => setTheme('dark')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all focus:outline-none ${
-              theme === 'dark'
-                ? 'bg-red-600 text-white shadow-md shadow-red-600/30'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-            }`}
-            title="Activer le Mode Sombre (Noir & Rouge)"
-          >
-            <Moon className="w-3.5 h-3.5" />
-            <span>Sombre</span>
-          </button>
-        </div>
-      </aside>
 
       {/* Toast System */}
       <ToastContainer />
