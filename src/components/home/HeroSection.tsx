@@ -56,40 +56,42 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: shouldReduceMotion ? 1 : 0.8 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.1,
-        delayChildren: 0.05,
+        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        delayChildren: 0.02,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 18 },
+    hidden: { opacity: shouldReduceMotion ? 1 : 0.8, y: shouldReduceMotion ? 0 : 10 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4 },
+      transition: { duration: 0.35 },
     },
   };
 
   return (
     <section className="relative min-h-[calc(100vh-5rem)] w-full flex items-center justify-center overflow-hidden py-10 lg:py-16 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-      {/* Background Animated Halos (Bleu en clair, Rouge en sombre) */}
+      {/* Background Ambient Elements & Halos */}
       <motion.div
         animate={
           shouldReduceMotion
             ? {}
             : {
                 scale: [1, 1.15, 1],
-                opacity: [0.12, 0.25, 0.12],
+                opacity: [0.15, 0.28, 0.15],
               }
         }
         transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/15 dark:bg-red-500/15 rounded-full blur-[160px] pointer-events-none"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/15 dark:bg-red-500/15 rounded-full blur-[160px] pointer-events-none"
       />
+      <div className="absolute -top-12 -right-12 w-[500px] h-[500px] bg-blue-600/10 dark:bg-red-600/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute -bottom-10 -left-10 w-[400px] h-[400px] bg-indigo-500/10 dark:bg-red-700/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">

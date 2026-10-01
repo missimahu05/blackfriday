@@ -202,7 +202,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Dark / Light Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-red-400 bg-slate-100 dark:bg-[#11141B] hover:bg-blue-50 dark:hover:bg-[#181C25] border border-slate-200 dark:border-[#232936] rounded-xl transition-all min-w-[42px] min-h-[42px] flex items-center justify-center focus:outline-none"
+              className={`p-2.5 rounded-xl border transition-all min-w-[42px] min-h-[42px] flex items-center justify-center focus:outline-none shadow-sm ${
+                theme === 'dark'
+                  ? 'bg-red-500/10 text-red-400 border-red-500/30 hover:bg-red-500/20 shadow-red-500/10'
+                  : 'bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100/80 shadow-blue-500/10'
+              }`}
               aria-label={theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre'}
               title={theme === 'dark' ? 'Passer en Mode Clair (Blanc & Bleu)' : 'Passer en Mode Sombre (Noir & Rouge)'}
             >

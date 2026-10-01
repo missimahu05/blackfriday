@@ -12,12 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <script>
       (function() {
-        var theme = localStorage.getItem('nova-theme');
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var urlTheme = params.get('theme');
+          var theme = urlTheme || localStorage.getItem('nova-theme');
+          if (urlTheme) {
+            localStorage.setItem('nova-theme', urlTheme);
+          }
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
       })();
     </script>
   </head>

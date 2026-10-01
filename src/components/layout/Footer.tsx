@@ -15,13 +15,16 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
   return (
-    <footer className="bg-white dark:bg-[#080A0F] border-t border-slate-200 dark:border-[#232936] mt-24 text-slate-600 dark:text-slate-400 text-sm transition-colors duration-300">
-      {/* Reassurance Grid */}
-      <div className="border-b border-slate-200 dark:border-[#232936]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <footer className="relative bg-slate-50 dark:bg-[#11141B] border-t border-slate-200 dark:border-[#232936] mt-24 text-slate-600 dark:text-slate-400 text-sm transition-colors duration-300 overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-40 bg-blue-500/5 dark:bg-red-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Reassurance Grid: Visually Elevated Header Bar */}
+      <div className="bg-white/80 dark:bg-[#151A24] border-b border-slate-200/80 dark:border-[#232936] transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-red-500/10 border border-blue-200 dark:border-red-500/20 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-[#1c2230] border border-blue-200 dark:border-[#2b3548] flex items-center justify-center shrink-0 shadow-sm">
                 <Truck className="w-6 h-6 text-blue-600 dark:text-red-400" />
               </div>
               <div>
@@ -33,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-red-500/10 border border-blue-200 dark:border-red-500/20 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-[#1c2230] border border-blue-200 dark:border-[#2b3548] flex items-center justify-center shrink-0 shadow-sm">
                 <ShieldCheck className="w-6 h-6 text-blue-600 dark:text-red-400" />
               </div>
               <div>
@@ -45,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-red-500/10 border border-blue-200 dark:border-red-500/20 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-[#1c2230] border border-blue-200 dark:border-[#2b3548] flex items-center justify-center shrink-0 shadow-sm">
                 <RotateCcw className="w-6 h-6 text-blue-600 dark:text-red-400" />
               </div>
               <div>
@@ -57,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-red-500/10 border border-blue-200 dark:border-red-500/20 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-[#1c2230] border border-blue-200 dark:border-[#2b3548] flex items-center justify-center shrink-0 shadow-sm">
                 <Headphones className="w-6 h-6 text-blue-600 dark:text-red-400" />
               </div>
               <div>
@@ -72,7 +75,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
       </div>
 
       {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
@@ -179,14 +182,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
             </h5>
             <div className="space-y-3">
               <div className="flex flex-wrap gap-2">
-                <span className="px-2.5 py-1.5 rounded bg-slate-100 dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] text-[11px] font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                <span className="px-2.5 py-1.5 rounded bg-white dark:bg-[#181C25] border border-slate-200 dark:border-[#232936] text-[11px] font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5 shadow-sm">
                   <CreditCard className="w-3.5 h-3.5 text-blue-600 dark:text-red-400" />
                   Carte Bancaire
                 </span>
-                <span className="px-2.5 py-1.5 rounded bg-slate-100 dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] text-[11px] font-medium text-slate-700 dark:text-slate-300">
+                <span className="px-2.5 py-1.5 rounded bg-white dark:bg-[#181C25] border border-slate-200 dark:border-[#232936] text-[11px] font-medium text-slate-700 dark:text-slate-300 shadow-sm">
                   Apple Pay
                 </span>
-                <span className="px-2.5 py-1.5 rounded bg-slate-100 dark:bg-[#11141B] border border-slate-200 dark:border-[#232936] text-[11px] font-medium text-slate-700 dark:text-slate-300">
+                <span className="px-2.5 py-1.5 rounded bg-white dark:bg-[#181C25] border border-slate-200 dark:border-[#232936] text-[11px] font-medium text-slate-700 dark:text-slate-300 shadow-sm">
                   PayPal 4X
                 </span>
               </div>
@@ -198,7 +201,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateSection }) => {
         </div>
       </div>
 
-      <div className="border-t border-slate-200 dark:border-[#232936] py-6">
+      {/* Sub-footer Bar with Jolidon HOUNGUE developer credit */}
+      <div className="border-t border-slate-200 dark:border-[#232936] bg-slate-100/70 dark:bg-[#0c0f16] py-6 relative z-10 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
             <p>© 2026 NOVA DEALS SAS. Tous droits réservés.</p>

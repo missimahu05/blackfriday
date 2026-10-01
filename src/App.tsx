@@ -17,7 +17,7 @@ import { ReviewsSection } from './components/home/ReviewsSection';
 import { NewsletterSection } from './components/home/NewsletterSection';
 
 import { Sun, Moon } from 'lucide-react';
-import { useThemeStore } from './store/useThemeStore';
+import { useThemeStore, applyThemeToDOM } from './store/useThemeStore';
 import type { Product, ProductCategory } from './types';
 
 export function App() {
@@ -26,19 +26,11 @@ export function App() {
   const [completedOrder, setCompletedOrder] = useState<{ id: string; total: number } | null>(null);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<ProductCategory | 'all'>('all');
 
-  const { theme, toggleTheme } = useThemeStore();
+  const { theme, setTheme } = useThemeStore();
 
   // Force documentElement & body class synchronization
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.body.classList.add('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.body.classList.remove('dark');
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
+    applyThemeToDOM(theme);
   }, [theme]);
 
   const scrollToSection = (sectionId: string) => {
@@ -65,7 +57,7 @@ export function App() {
   return (
     <div
       data-theme={theme}
-      className={`min-h-screen ${theme === 'dark' ? 'dark' : ''} bg-white dark:bg-[#080A0F] text-slate-900 dark:text-white flex flex-col font-sans selection:bg-blue-600 dark:selection:bg-red-600 selection:text-white transition-colors duration-200`}
+      className={`min-h-screen ${theme === 'dark' ? 'dark bg-mesh-dark bg-grid-dark text-white' : 'bg-mesh-light bg-grid-light text-slate-900'} flex flex-col font-sans selection:bg-blue-600 dark:selection:bg-red-600 selection:text-white transition-colors duration-200`}
     >
       {/* Sticky Navbar without clutter bands */}
       <Navbar
@@ -134,25 +126,34 @@ export function App() {
         onClose={() => setCompletedOrder(null)}
       />
 
-      {/* Floating Theme Quick Switcher (Always accessible on all devices) */}
+      {/* Floating Theme Quick Switcher (Dual segmented pill with active illuminated badge) */}
       <aside aria-label="Sélecteur de mode d'affichage" className="fixed bottom-5 left-5 z-40">
-        <button
-          onClick={toggleTheme}
-          className="group flex items-center gap-2.5 px-3.5 py-2.5 rounded-full bg-white dark:bg-[#11141B] text-slate-800 dark:text-white border-2 border-blue-600 dark:border-red-600 shadow-xl shadow-blue-500/20 dark:shadow-red-500/25 hover:scale-105 active:scale-95 transition-all focus:outline-none"
-          title={theme === 'dark' ? 'Basculer en Mode Clair (Blanc & Bleu)' : 'Basculer en Mode Sombre (Noir & Rouge)'}
-        >
-          {theme === 'dark' ? (
-            <>
-              <Sun className="w-4 h-4 text-red-500" />
-              <span className="text-xs font-bold hidden sm:inline text-red-400">Mode Sombre (Noir/Rouge)</span>
-            </>
-          ) : (
-            <>
-              <Moon className="w-4 h-4 text-blue-600" />
-              <span className="text-xs font-bold hidden sm:inline text-blue-700">Mode Clair (Blanc/Bleu)</span>
-            </>
-          )}
-        </button>
+        <div className="flex items-center p-1 rounded-full bg-white/95 dark:bg-[#11141B]/95 backdrop-blur-md border border-slate-300 dark:border-[#232936] shadow-2xl shadow-slate-900/15 dark:shadow-black/60">
+          <button
+            onClick={() => setTheme('light')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all focus:outline-none ${
+              theme === 'light'
+                ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+            title="Activer le Mode Clair (Blanc & Bleu)"
+          >
+            <Sun className="w-3.5 h-3.5" />
+            <span>Clair</span>
+          </button>
+          <button
+            onClick={() => setTheme('dark')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all focus:outline-none ${
+              theme === 'dark'
+                ? 'bg-red-600 text-white shadow-md shadow-red-600/30'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+            title="Activer le Mode Sombre (Noir & Rouge)"
+          >
+            <Moon className="w-3.5 h-3.5" />
+            <span>Sombre</span>
+          </button>
+        </div>
       </aside>
 
       {/* Toast System */}

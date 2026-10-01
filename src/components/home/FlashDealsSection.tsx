@@ -24,8 +24,12 @@ export const FlashDealsSection: React.FC<FlashDealsSectionProps> = ({
   }, []);
 
   return (
-    <section id="flash-deals" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-[#232936] relative flex flex-col justify-center transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <section id="flash-deals" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-[#232936] relative flex flex-col justify-center transition-colors duration-300 overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute -top-24 right-1/4 w-[500px] h-[500px] bg-blue-500/5 dark:bg-red-500/8 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute -bottom-24 left-10 w-[400px] h-[400px] bg-blue-600/5 dark:bg-red-600/8 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>

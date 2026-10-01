@@ -30,6 +30,10 @@ export const SpotlightDealSection: React.FC<SpotlightDealSectionProps> = ({
 
   return (
     <section id="spotlight" className="min-h-screen py-16 lg:py-24 border-b border-slate-200 dark:border-[#232936] relative flex flex-col justify-center overflow-hidden transition-colors duration-300">
+      {/* Ambient background glows */}
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[550px] h-[550px] bg-blue-500/10 dark:bg-red-500/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-blue-600/5 dark:bg-red-600/5 rounded-full blur-[130px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-white via-slate-50 to-blue-50/40 dark:from-[#181C25] dark:via-[#11141B] dark:to-[#080A0F] border border-blue-100 dark:border-[#232936] shadow-xl dark:shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">

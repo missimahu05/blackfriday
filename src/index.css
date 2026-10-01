@@ -47,3 +47,79 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 html:not(.dark) ::-webkit-scrollbar-thumb:hover {
   background: #2563eb;
 }
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 50px -10px rgba(37, 99, 235, 0.40);
+}
+
+.glow-promo {
+  box-shadow: 0 0 45px -8px rgba(239, 68, 68, 0.45);
+}
+
+/* Ambient Radial Light Meshes */
+@layer utilities {
+  .bg-mesh-dark {
+    background-color: #080A0F;
+    background-image: 
+      radial-gradient(at 10% 15%, rgba(239, 68, 68, 0.14) 0px, transparent 45%),
+      radial-gradient(at 90% 12%, rgba(220, 38, 38, 0.10) 0px, transparent 40%),
+      radial-gradient(at 50% 50%, rgba(239, 68, 68, 0.05) 0px, transparent 55%),
+      radial-gradient(at 15% 85%, rgba(185, 28, 28, 0.09) 0px, transparent 45%),
+      radial-gradient(at 85% 85%, rgba(239, 68, 68, 0.12) 0px, transparent 45%);
+  }
+
+  .bg-mesh-light {
+    background-color: #FFFFFF;
+    background-image: 
+      radial-gradient(at 10% 15%, rgba(37, 99, 235, 0.09) 0px, transparent 45%),
+      radial-gradient(at 90% 12%, rgba(59, 130, 246, 0.07) 0px, transparent 40%),
+      radial-gradient(at 50% 50%, rgba(37, 99, 235, 0.04) 0px, transparent 55%),
+      radial-gradient(at 15% 85%, rgba(29, 78, 216, 0.06) 0px, transparent 45%),
+      radial-gradient(at 85% 85%, rgba(37, 99, 235, 0.08) 0px, transparent 45%);
+  }
+
+  /* Subtle Ambient Micro-Grid Patterns */
+  .bg-grid-dark {
+    background-size: 36px 36px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  }
+
+  .bg-grid-light {
+    background-size: 36px 36px;
+    background-image: 
+      linear-gradient(to right, rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+  }
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: rgba(17, 20, 27, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.glass-panel-elevated {
+  background: rgba(24, 28, 37, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+html:not(.dark) .glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
